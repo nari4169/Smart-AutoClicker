@@ -21,6 +21,8 @@
 
 Smart AutoClicker is an Android application allowing to automate repetitive task by clicking automatically for you on the screen. Unlike the regular auto clicker application, the clicks aren't based on timers to execute the clicks. Instead, it allows you to capture an image from a part of your screen and execute the click once this image is detected again.
 
+Smart AutoClicker는 화면에서 자동으로 클릭하여 반복적인 작업을 자동화할 수 있는 Android 애플리케이션입니다. 일반 자동 클릭커 애플리케이션과 달리 클릭은 클릭을 실행하는 타이머를 기반으로 하지 않습니다. 대신, 화면의 일부에서 이미지를 캡처하고 이 이미지가 다시 감지되면 클릭을 실행할 수 있습니다.
+
 <br>
 <p align="center">
   <img src="https://i.postimg.cc/VYtCZrN0/1.png" width="200">
