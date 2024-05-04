@@ -39,4 +39,11 @@ Smart AutoClicker is an Android application allowing to automate repetitive task
 - Combine multiple conditions
 - Configure the delay before the next click
 - Modify the prority order of a click
-
+- 
+- 시나리오별로 클릭수 정리
+- 클릭, 스와이프, 인텐트 전송, 이벤트 상태 수정 실행
+- 화면에서 하나 이상의 이미지 조건을 추가합니다.
+- 상태 감지에 대한 허용오차 수정
+- 여러 조건을 결합
+- 다음 클릭 전 지연을 구성합니다.
+- 클릭의 우선순위 수정

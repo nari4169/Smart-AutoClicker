@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+* Copyright (C) 2023 Kevin Buzeau
+
+*
+
+* This program is free software: you can redistribute it and/or modify
+
+* it under the terms of the GNU General Public License as published by
+
+* the Free Software Foundation, either version 3 of the License, or
+
+* (at your option) any later version.
+
+*
+
+* This program is distributed in the hope that it will be useful,
+
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+
+* GNU General Public License for more details.
+
+*
+
+* You should have received a copy of the GNU General Public License
+
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<resources>
+
+    <string name="app_name" translatable="false">Smart AutoClicker</string>
+
+    <string name="notification_channel_name" translatable="false">Smart AutoClicker</string>
+
+    <!-- Application wide texts. -->
+
+<string name="notification_title">시나리오: %1$s</string>
+<string name="notification_message">시나리오를 변경하려면 눌러주세요.</string>
+<string name="notification_button_toggle_menu">보기/숨기기</string>
+<string name="notification_button_stop">멈춰</string>
+<string name="activity_title">상황</string>
+<string name="accessibility_service_description">이 앱은 사용자님이 생성한 클릭을 조건이 감지되자마자 다른 앱에 삽입하기 위해 이 서비스를 필요로 합니다.
+
+이 앱에서는 데이터를 수집하지 않습니다. 언제든지 자유롭게 github를 방문하세요. 코드는 오픈 소스입니다!</string>
+    <!--
+
+      - Titles for the dialogs displayed from the activity.
+
+      - Regular Android dialog title characters size.
+
+      -->
+
+<string name="dialog_title_add_scenario">새로운 시나리오</string>
+<string name="dialog_title_permission_accessibility">접근성 서비스</string>
+<string name="dialog_title_permission_notification">알림</string>
+<string name="dialog_title_permission_mandatory_denied">접근 권한 없음</string>
+<string name="dialog_title_permission_overlay">오버레이</string>
+    <!--
+
+      - Text for menu items.
+
+      - Should be short and concise.
+
+      -->
+
+<string name="menu_item_title_export">내보내기</string>
+<string name="menu_item_title_import">가져오기</string>
+<string name="menu_item_title_select_all">전체 선택</string>
+<string name="menu_item_title_privacy">개인 설정</string>
+    <!--
+
+      - Text for items in a list or vertical layout.
+
+      -  * Title should be short and concise.
+
+      -  * Desc can have more space to describe the title
+
+      -  * Error have the same space as desc
+
+      -->
+
+<string name="item_desc_dumb_scenario">일반 자동 클릭 자동화를 즐기세요.
+화면을 클릭하고 스와이프만 하면 됩니다.</string>
+<string name="item_desc_dumb_scenario_max_duration">%1$s 이후에 멈춤</string>
+<string name="item_desc_dumb_scenario_max_duration_infinite">최대 기간 없음</string>
+<string name="item_desc_dumb_scenario_repeat_count">%1$d번 반복</string>
+<string name="item_desc_dumb_scenario_repeat_infinite">무한 반복</string>
+<string name="item_desc_smart_scenario">이미지 탐지를 사용하여 복잡한 유스 케이스를 만듭니다.
+유료 한도가 포함되어 있습니다.</string>
+<string name="item_desc_smart_scenario_pro_mode">이미지 탐지를 활용해 복잡한 유스 케이스를 만들어 보세요.</string>
+<string name="item_title_dumb_scenario">쉽죠</string>
+<string name="item_title_smart_scenario">똑똑해</string>
+    <!--
+
+      - Empty list messages.
+
+      - Views handles any length here, but try to be concise.
+
+      -->
+
+<string name="message_empty_scenario_list">처음 만드는 시나리오로 휴대전화 작업 자동화 시작하기</string>
+    <!--
+
+      - Messages.
+
+      - Views handles any length here, so no limitations.
+
+      -->
+
+<string name="message_delete_scenario">%1$s가 삭제됩니다. 계속하시겠습니까?</string>
+<string name="message_error_screen_capture_permission_dialog_not_found">기기에서 표준 Android 화면 캡처 권한 대화 상자를 제공하지 않습니다. 이 때문에 Smart AutoClicker를 기기에서 실행할 수 없습니다.</string>
+<string name="message_permission_desc_overlay">자동화하고 싶은 애플리케이션 위에 Smart AutoClicker 인터페이스를 보여주려면 오버레이 권한이 필요합니다. 다른 애플리케이션을 중단하지 않고도 시나리오를 구성할 수 있습니다.</string>
+<string name="message_permission_desc_accessibility">접근성 서비스 권한을 사용하면 스마트 자동 클릭기에서 장치 화면에서 제스처를 수행할 수 있습니다. 이 권한은 자동화 시나리오에서 생성할 클릭과 스와이프를 실행하는 데 필요합니다.
+스마트 자동 클릭기에서 데이터는 수집되지 않습니다
+접근성 서비스 권한을 부여하려면 아래 버튼을 클릭하십시오.</string>
+<string name="message_permission_desc_notification">선택 사항: 시나리오 선택 화면으로 쉽게 돌아갈 수 있도록 응용 프로그램이 실행되는 동안 알림을 표시합니다.</string>
+<string name="message_permission_mandatory_denied">스마트자동클리커에는 이 권한이 필수입니다. 이 권한 없이는 제대로 작동할 수 없습니다.</string>
+    <!--
+
+      - Section titles.
+
+      - Should be short and concise.
+
+      -->
+
+<string name="section_title_scenario_type_title">시나리오 유형</string>
+    <!--
+
+      - Toast messages.
+
+      - Can be pretty long (2 lines).
+
+      -->
+
+<string name="toast_denied_screen_sharing_permission">사용자가 화면 공유 허용을 거부했습니다.</string>
+<string name="toast_denied_foreground_permission">사용자가 전면 서비스 권한 거부</string>
+    <!--
+
+      - TextButton content.
+
+      - Should be short and concise.
+
+      -->
+
+<string name="button_text_create_scenario">시나리오 제작하기</string>
+<string name="button_request_permission">사용 허가 요청</string>
+<string name="button_deny"></string>
+    <!--
+
+      - Content description texts.
+
+      - They are use as accessibility texts for visually impaired people. They will not be displayed but spoken.
+
+      -->
+
+<string name="content_desc_add_scenario">새로운 시나리오 만들기</string>
+    <!-- Default name when creating a new scenario -->
+
+<string name="default_scenario_name">기본 이름</string>
+<string name="message_empty_image_events_scenario_list">이미지 이벤트 없음</string>
+</resources>

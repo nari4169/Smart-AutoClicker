@@ -40,7 +40,8 @@
         <activity
             android:name="com.buzbuz.smartautoclicker.activity.ScenarioActivity"
             android:screenOrientation="locked"
-            android:exported="true">
+            android:exported="true"
+            tools:ignore="DiscouragedApi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

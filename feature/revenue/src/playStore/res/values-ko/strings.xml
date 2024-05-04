@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+* Copyright (C) 2023 Kevin Buzeau
+
+*
+
+* This program is free software: you can redistribute it and/or modify
+
+* it under the terms of the GNU General Public License as published by
+
+* the Free Software Foundation, either version 3 of the License, or
+
+* (at your option) any later version.
+
+*
+
+* This program is distributed in the hope that it will be useful,
+
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+
+* GNU General Public License for more details.
+
+*
+
+* You should have received a copy of the GNU General Public License
+
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<resources>
+
+    <string name="billing_pro_mode_dialog_title" translatable="false">Smart AutoClicker Pro</string>
+
+<string name="billing_pro_mode_description">&#8226; 탐지 기간 제한 없음
+&#8226; 시나리오, 이벤트, 조건, 동작 생성 수 제한 없음
+&#8226; 시나리오를 zip 파일로 내보내기 및 가져오기
+&#8226; Intent를 통해 다른 애플리케이션과 통신
+&#8226; 이벤트 사용/사용 안 함 및 시나리오 실행 중 상태 변경
+&#8226; 각 조건의 탐지 임계값 제어
+&#8226; 특정 종료 조건이 충족되면 탐지 자동 중지
+&#8226; 다른 애플리케이션에 의한 탐지를 방지하기 위한 시나리오 값 무작위 지정
+&#8226; 속도 또는 정확도를 향상시키기 위해 탐지 알고리즘 조정</string>
+<string name="billing_pro_mode_success">스마트 자동클리커 프로 구입해 주셔서 감사합니다!</string>
+<string name="header_billing">스마트 오토클리커 프로</string>
+<string name="message_billing">이 애플리케이션은 오픈소스이고 자유 시간으로 작업하는 사람들이 사랑을 담아 제작했습니다.\n\n광고를 시청하여 개발을 지원하거나 Smart AutoClicker Pro를 구매하여 영구적으로 광고를 지우세요!</string>
+<string name="button_text_watch_ad">광고 보기</string>
+<string name="button_text_watch_ad_error">광고 오류</string>
+<string name="button_text_buy_pro">프로(%1$s) 구매하기</string>
+<string name="button_text_understood">알겠어요</string>
+<string name="button_text_buy_pro_error">구매 불가</string>
+<string name="button_text_visit_github">GitHub로 방문하세요</string>
+<string name="button_text_trial">무료 체험 %1$d분</string>
+</resources>

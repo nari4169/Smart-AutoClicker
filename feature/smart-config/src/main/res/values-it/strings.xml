@@ -299,5 +299,6 @@
     <string name="content_desc_image_condition">L\'immagine da rilevare</string>
     <string name="content_desc_open_event_list">Apri la lista eventi</string>
     <string name="content_desc_application_icon">L\'icona dell\'applicazione da avviare.</string>
+    <string name="dialog_overlay_title_extra_config">Extra</string>
 
 </resources>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+* Copyright (C) 2023 Kevin Buzeau
+
+*
+
+* This program is free software: you can redistribute it and/or modify
+
+* it under the terms of the GNU General Public License as published by
+
+* the Free Software Foundation, either version 3 of the License, or
+
+* (at your option) any later version.
+
+*
+
+* This program is distributed in the hope that it will be useful,
+
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+
+* GNU General Public License for more details.
+
+*
+
+* You should have received a copy of the GNU General Public License
+
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<resources>
+
+    <!--
+
+      - Titles for the dialogs displayed as overlay.
+
+      - Allowed characters can be small due to save/delete/close buttons.
+
+      -->
+
+<string name="dialog_overlay_title_dumb_action_type">액션 유형</string>
+<string name="dialog_overlay_title_dumb_scenario_config">시나리오</string>
+    <!--
+
+      - Text for menu items.
+
+      - Should be short and concise.
+
+      -->
+
+<string name="menu_item_title_dumb_actions">행동</string>
+<string name="menu_item_title_dumb_config">설정</string>
+    <!--
+
+      - Text for items in a list or vertical layout.
+
+      -  * Title should be short and concise.
+
+      -  * Desc can have more space to describe the title
+
+      -  * Error have the same space as desc
+
+      -->
+
+<string name="item_desc_dumb_action_duration">%1$s 중</string>
+<string name="item_desc_dumb_click">화면 어디든 클릭하세요.</string>
+<string name="item_desc_dumb_click_details">[%2$d, %3$d]에서 %1$s 중</string>
+<string name="item_desc_dumb_click_on_position">%1$d시, %2$d분을 클릭하세요</string>
+<string name="item_desc_dumb_pause">실행 잠시 멈추기</string>
+<string name="item_desc_dumb_pause_details">%1$s 기간 동안</string>
+<string name="item_desc_dumb_repeat_count">%1$d번 반복하기</string>
+<string name="item_desc_dumb_swipe">화면에서 한 곳에서 다른 곳으로 스와이프</string>
+<string name="item_desc_dumb_swipe_details">%1$s 기간 동안 [%2$d, %3$d]부터 [%4$d, %5$d]까지</string>
+<string name="item_desc_dumb_swipe_positions">%1$d, %2$d에서 %3$d, %4$d로 스와이프</string>
+<string name="item_title_dumb_click">클릭</string>
+<string name="item_title_dumb_pause">기다리기</string>
+<string name="item_title_dumb_swipe">끌어당기기</string>
+<string name="item_title_no_dumb_actions">조치 없음</string>
+    <!--
+
+      - Empty list messages.
+
+      - Views handles any length here, but try to be concise.
+
+      -->
+
+<string name="message_empty_dumb_action_list">작업이 없습니다!</string>
+<string name="message_empty_secondary_dumb_action_list">시나리오를 실행하려면 적어도 하나의 조치가 필요합니다.</string>
+    <!--
+
+      - Messages.
+
+      - Views handles any length here, so no limitations.
+
+      -->
+
+<string name="message_dumb_brief_empty_action_list">시나리오를 실행하려면 최소한 한 가지 조치가 필요합니다.</string>
+    <!--
+
+      - List header.
+
+      - Displayed on one line.
+
+      -->
+
+<string name="list_header_copy_dumb_action_this">이 시나리오에서 발생하는 상황</string>
+<string name="list_header_copy_dumb_action_all">모든 시나리오에서의 조치</string>
+    <!--
+
+      - SearchView hint
+
+      - Displayed on one line.
+
+      -->
+
+<string name="search_view_hint_dumb_action_copy">행동 이름으로 검색</string>
+    <!--
+
+      - Text input fields labels and error messages.
+
+      - Should be short and concise.
+
+      -->
+
+<string name="input_field_label_maximum_duration">최대 사용  시간(분)</string>
+<string name="input_field_label_repeat_count">반복횟수</string>
+<string name="input_field_label_repeat_delay">반복 지연 (ms)</string>
+    <!--
+
+      - Content description texts.
+
+      - They are use as accessibility texts for visually impaired people. They will not be displayed but spoken.
+
+      -->
+
+<string name="content_desc_add_action">시나리오에 새 작업을 추가하세요.</string>
+<string name="content_desc_show_actions">생성된 액션 표시/숨김</string>
+<string name="content_desc_open_action_list">작업 목록 열기</string>
+    <!--
+
+      - The following strings should be kept the same in all languages.
+
+      - DO NOT TRANSLATE.
+
+      -->
+
+    <string name="title_action_count" translatable="false">%1$d/%2$d</string>
+
+</resources>

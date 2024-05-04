@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+* Copyright (C) 2024 Kevin Buzeau
+
+*
+
+* This program is free software: you can redistribute it and/or modify
+
+* it under the terms of the GNU General Public License as published by
+
+* the Free Software Foundation, either version 3 of the License, or
+
+* (at your option) any later version.
+
+*
+
+* This program is distributed in the hope that it will be useful,
+
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+
+* GNU General Public License for more details.
+
+*
+
+* You should have received a copy of the GNU General Public License
+
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<resources>
+
+    <!--
+
+      - Titles for the dialogs displayed as overlay.
+
+      - Allowed characters can be small due to save/delete/close buttons.
+
+      -->
+
+<string name="dialog_overlay_title_action_type">액션 타입</string>
+<string name="dialog_overlay_title_application_selection">애플리케이션 선택</string>
+<string name="dialog_overlay_title_click">클릭</string>
+<string name="dialog_overlay_title_condition_config">상태</string>
+<string name="dialog_overlay_title_condition_selection">조건 선택</string>
+<string name="dialog_overlay_title_end_condition_config">종료 조건</string>
+<string name="dialog_overlay_title_event_config">행사</string>
+<string name="dialog_overlay_title_event_selection">이벤트 선택</string>
+    <string name="dialog_overlay_title_intent" translatable="false">Intent</string>
+
+<string name="dialog_overlay_title_pause">잠깐만 기다려주세요.</string>
+<string name="dialog_overlay_title_scenario_config">시나리오</string>
+<string name="dialog_overlay_title_swipe">스와이프</string>
+<string name="dialog_overlay_title_toggle_event">이벤트 상태</string>
+    <string name="dialog_overlay_title_intent_flags" translatable="false">Flags</string>
+
+    <string name="dialog_overlay_title_intent_actions" translatable="false">Intent Actions</string>
+
+    <string name="dialog_overlay_title_intent_component_name" translatable="false">Component name</string>
+
+<string name="dialog_overlay_title_events_toggle">이벤트 토글</string>
+<string name="dialog_overlay_title_change_counter">counter</string>
+<string name="dialog_overlay_title_counter_name_selection">카운터</string>
+<string name="dialog_overlay_title_trigger_condition_type">트리거 유형</string>
+<string name="dialog_overlay_title_timer_reached">타이머 끝</string>
+<string name="dialog_overlay_title_broadcast_received">방송 수신됨</string>
+<string name="dialog_overlay_title_counter_reached">카운터 가치</string>
+<string name="dialog_overlay_title_image_event_config">화면 이벤트</string>
+<string name="dialog_overlay_title_trigger_event_config">이벤트</string>
+    <!--
+
+      - Text for menu items.
+
+      - Should be short and concise.
+
+      -->
+
+<string name="menu_item_title_advanced">상급</string>
+<string name="menu_item_title_cancel">취소하다</string>
+<string name="menu_item_title_search">검색하다</string>
+<string name="menu_item_title_simple">쉽게</string>
+<string name="menu_item_title_events">행사</string>
+<string name="menu_item_title_config">설정</string>
+<string name="menu_item_title_more">더 많이</string>
+<string name="menu_item_title_conditions">조건</string>
+<string name="menu_item_title_actions">행동</string>
+<string name="menu_item_title_image_events">스크린</string>
+<string name="menu_item_title_trigger_events">트리거</string>
+    <!--
+
+      - Text for items in a list or vertical layout.
+
+      -  * Title should be short and concise.
+
+      -  * Desc can have more space to describe the title
+
+      -  * Error have the same space as desc
+
+      -->
+
+<string name="item_desc_click">스크린 어디든 클릭하세요.</string>
+<string name="item_desc_click_details">%1$s 기간 중 [%2$d, %3$d]</string>
+<string name="item_desc_click_position_on_condition">조건부로</string>
+<string name="item_desc_click_on_condition_and_operator">%1$s을 자연스럽게 한국어로 번역하십시오. 한국어 사용자에게 자연스럽게 느껴지는 표현을 사용하십시오.</string>
+<string name="item_desc_click_on_condition_and_operator_not_found">조건이 선택되지 않았습니다.</string>
+<string name="item_desc_click_on_condition_or_operator">이벤트에 "일반 조건"이 설정되어 있어 특정 조건을 선택할 수 없습니다.</string>
+<string name="item_desc_click_on_position">%1$d, %2$d 클릭</string>
+<string name="item_desc_detection_type_exact">[%1$d, %2$d] [%3$d, %4$d] 지점에서</string>
+<string name="item_desc_detection_type_in_area">[%1$d, %2$d] [%3$d, %4$d]에</string>
+<string name="item_desc_intent">다른 앱과 상호 작용</string>
+<string name="item_desc_intent_action">%1$s 보내기</string>
+<string name="item_desc_intent_action_component">%1$s를 %2$s으로(게) 전송</string>
+<string name="item_desc_pause">검출 실행 일시정지</string>
+<string name="item_desc_pause_details">%1$s 중에</string>
+<string name="item_desc_position_select">위치 선택</string>
+<string name="item_desc_swipe">화면의 한 위치에서 다른 위치로 스와이프하세요.</string>
+<string name="item_desc_swipe_details">%1$s 기간 중 [%2$d, %3$d]에서 [%4$d, %5$d]까지</string>
+<string name="item_desc_swipe_positions">%1$d, %2$d에서 %3$d, %4$d로 스와이프하세요</string>
+<string name="item_desc_toggle_event">이벤트의 활성화 상태 변경</string>
+<string name="item_desc_toggle_event_details">%1$s 유형으로 이벤트 상태 변경</string>
+<string name="item_desc_toggle_event_manual">직접 변경할 이벤트 정의하기</string>
+<string name="item_desc_toggle_event_enable_all">이 시나리오에서 모든 이벤트 활성화</string>
+<string name="item_desc_toggle_event_invert_all">이 시나리오의 모든 이벤트 상태를 반대로 전환합니다.</string>
+<string name="item_desc_toggle_event_disable_all">이 시나리오의 모든 이벤트 비활성화. 모든 이벤트가 비활성화되면 시나리오가 자동으로 중지됩니다.</string>
+<string name="item_desc_event_toggles_empty">상태가 변경될 최소한 하나의 이벤트 선택</string>
+<string name="item_desc_toggle_event_state_enable_all">모두 활성화</string>
+<string name="item_desc_toggle_event_state_disable_all">모든 항목 비활성화</string>
+<string name="item_desc_toggle_event_state_invert_all">모두 뒤집기</string>
+<string name="item_desc_toggle_event_state_manual">%1$d개 이벤트 변경</string>
+<string name="item_desc_change_counter">나중에 확인할 수 있도록 변경</string>
+<string name="item_desc_change_counter_details">%1$s %2$s %3$d</string>
+<string name="item_desc_on_broadcast_received">%1$s가 받았다</string>
+<string name="item_desc_on_counter_reached">%1$s %2$s %3$d</string>
+<string name="item_desc_on_timer_reached">이벤트가 %1$s 후에 활성화됨</string>
+<string name="item_desc_broadcast_received">브로드캐스트가 수신되면 보완</string>
+<string name="item_desc_counter_reached">액션에서 수정된 카운터 값 확인하기</string>
+<string name="item_desc_timer_reached">이 이벤트가 활성화된 후 정의된 시간이 지나면 이행됩니다.</string>
+<string name="item_error_action_invalid_toggle_event_target">대상 이벤트가 없습니다.</string>
+<string name="item_error_action_invalid_change_counter">카운터는 유효하지 않습니다.</string>
+<string name="item_title_click">클릭</string>
+<string name="item_title_click_on_condition_and_operator">조건을 클릭하세요</string>
+<string name="item_title_click_on_condition_or_operator">첫 번째로 탐지된 상태를 클릭해 주세요.</string>
+<string name="item_title_debug_generate_report">리포트 출력</string>
+<string name="item_title_debug_report_available">디버그 보고서가 있습니다</string>
+<string name="item_title_debug_report_not_available">디버그 보고서가 없습니다</string>
+<string name="item_title_debug_show_view">디버그 보기 표시</string>
+<string name="item_title_detection_type_exact">잡힌 위치에서의 검색</string>
+<string name="item_title_detection_type_in_area">화면의 일부 영역을 탐지</string>
+<string name="item_title_detection_type_screen">전체 화면에서의 감지</string>
+<string name="item_title_intent">의향</string>
+<string name="item_title_pause">잠깐만요</string>
+<string name="item_title_swipe">스와이프</string>
+<string name="item_title_toggle_event">이벤트 상태 변경</string>
+<string name="item_title_counter_reached">카운터에 도달했을 때</string>
+<string name="item_title_timer_reached">타이머 종료 시</string>
+<string name="item_title_broadcast_received">방송 수신 시</string>
+<string name="item_title_empty_event_toggles">변경 사항 없음</string>
+<string name="item_title_event_toggles">%1$d개 변경사항</string>
+<string name="item_title_change_counter">counter</string>
+<string name="item_title_restart_when_reached">도달 시 재시작</string>
+<string name="item_title_toggle_type">토글 유형</string>
+<string name="item_title_toggle_change_all">전체 변경</string>
+    <!--
+
+      - Empty list messages.
+
+      - Views handles any length here, but try to be concise.
+
+      -->
+
+<string name="message_empty_actions">움직임이 없군!</string>
+<string name="message_empty_trigger_conditions">조건 없음!</string>
+<string name="message_empty_image_conditions">화면 시간 제한 없이!</string>
+<string name="message_empty_end_condition_config_event_none_in_scenario">시나리오에 만든 이벤트가 없습니다.</string>
+<string name="message_empty_end_condition_config_event_no_selection">선택된 이벤트 없음</string>
+<string name="message_empty_image_event_list">화면이벤트 없음!</string>
+<string name="message_empty_trigger_event_list">이벤트가 없어요!</string>
+<string name="message_empty_counter_name_list">카운터가 정의되어 있지 않습니다</string>
+    <!--
+
+      - Secondary empty list messages.
+
+      - Views handles any length here, you can use more verbosity than the regular empty text.
+
+      -->
+
+<string name="message_empty_secondary_end_condition_no_events">시나리오의 종료 조건을 만드려면 하나 이상의 이벤트가 필요합니다.</string>
+<string name="message_empty_secondary_screen_event_list">화면 이벤트는 특정 조건이 화면에서 감지될 때 실행되는 일련의 동작을 포함합니다.
+시나리오에서 이 이벤트 또는 화면 이벤트 중 하나 이상이 있어야 합니다.</string>
+<string name="message_empty_secondary_trigger_event_list">이벤트는 특정 맞춤 조건에 부합할 때 실행되는 일련의 작업을 포함합니다.
+시나리오에 이벤트나 스크린 이벤트가 최소 하나 있어야 이벤트를 실행할 수 있습니다.</string>
+<string name="message_empty_secondary_trigger_condition_list">컨디션은 작업 시작에 대한 사용자 정의 기준입니다.\n이벤트에는 최소한 하나의 컨디션이 필요합니다.</string>
+<string name="message_empty_secondary_image_condition_list">스크린 조건은 여러분의 전화기 화면에 표시된 각 프레임에서 검색될 스크린샷의 일부입니다.\n이벤트에는 최소 한 개의 조건이 필요합니다.</string>
+<string name="message_empty_secondary_action_list">동작은 생성된 조건이 충족될 때 트리거되어, 귀하의 휴대폰과의 상호작용(클릭, 스와이프…)입니다.
+이벤트에는 하나 이상의 동작이 필요합니다.</string>
+<string name="message_empty_secondary_counter_name_list">카운터는 카운터 변경 동작 또는 카운터 도달 조건으로 생성됩니다.</string>
+    <!--
+
+      - Messages.
+
+      - Views handles any length here, so no limitations.
+
+      -->
+
+<string name="message_condition_threshold">%1$d%%</string>
+<string name="message_event_copy_with_toggle_action_from_another_scenario">이 이벤트에는 다른 시나리오의 이벤트를 참조하는 하나 이상의 이벤트 토글 조치가 있습니다.
+
+시나리오를 저장하기 전에 이러한 대상 이벤트를 업데이트해야 합니다.</string>
+<string name="message_event_delete_associated_end_condition">이 이벤트에는 참조하는 종료 조건이 하나 이상 있습니다. 이 이벤트를 삭제하면 연결된 종료 조건도 삭제됩니다. 계속 진행하시겠습니까?</string>
+<string name="message_event_delete_associated_action">이 이벤트는 자기 자신을 참조하는 하나 또는 그 이상의 작업이 있습니다. 이 이벤트를 삭제하면 관련 작업도 함께 삭제됩니다.\n정말 삭제하시겠습니까?</string>
+<string name="message_condition_delete_associated_action">이 조건에는 하나 이상의 참조 동작이 있습니다. 이 조건을 삭제하면 연결된 동작도 삭제됩니다. 계속 진행하시겠습니까?</string>
+<string name="message_tutorial_start">Smart AutoClicker를 사용하는 방법을 알아보세요.</string>
+<string name="message_scenario_saving_error">내부 오류로 인해 시나리오를 저장할 수 없습니다. 
+수정하시겠습니까? 아니면 모든 수정 사항을 취소하시겠습니까?</string>
+<string name="message_tutorial_first_time">축하합니다. Smart AutoClicker가 이제 당신의 기기에서 작동 가능합니다!\n이 애플리케이션의 기본을 알려주는 튜토리얼을 따라보시겠습니까?</string>
+<string name="message_error_native_lib">스마트 자동클리커가 제대로 설치되지 않아 감지를 시작할 수 없습니다.
+
+합법적인 애플리케이션 스토어에서 설치한 경우 이 문제를 해결하는 데 도움이 되므로 GitHub에서 문의하세요.</string>
+    <!--
+
+      - Section titles.
+
+      - Should be short and concise.
+
+      -->
+
+<string name="section_title_condition_detection_details">감지 세부 정보</string>
+<string name="section_title_condition_threshold">차이점 허용</string>
+<string name="section_title_detection_quality_title">탐지 품질</string>
+<string name="section_title_end_condition">종료 조건</string>
+<string name="section_title_intent_extras_value">가치</string>
+<string name="section_title_start_application">시작</string>
+<string name="section_title_tutorial">튜토리얼</string>
+<string name="section_title_debug">디버그</string>
+    <!--
+
+      - List header.
+
+      - Displayed on one line.
+
+      -->
+
+<string name="list_header_copy_action_this">이 이벤트의 액션</string>
+<string name="list_header_copy_action_all">다른 이벤트의 동작</string>
+<string name="list_header_copy_event_this">이 시나리오에서의 이벤트</string>
+<string name="list_header_copy_event_all">모든 시나리오의 이벤트</string>
+<string name="list_header_copy_conditions_this">이 이벤트로 인한 조건들</string>
+<string name="list_header_copy_conditions_all">모든 행사의 조건</string>
+    <!--
+
+      - SearchView hint
+
+      - Displayed on one line.
+
+      -->
+
+<string name="search_view_hint_event_copy">행사명으로 검색</string>
+<string name="search_view_hint_action_copy">액션 이름으로 검색</string>
+<string name="search_view_hint_condition_copy">증상 이름으로 검색</string>
+    <!--
+
+      - TextButton content.
+
+      - Should be short and concise.
+
+      -->
+
+<string name="button_text_create_scenario">시나리오 만들기</string>
+<string name="button_text_intent_extra_type_select">유형 선택</string>
+<string name="button_text_quality_speed">스피드</string>
+<string name="button_text_quality_precision">정밀성</string>
+<string name="button_text_swipe_positions_select">위치 선택</string>
+<string name="button_dialog_modify">수정하기</string>
+    <!--
+
+      - Text input fields labels and error messages.
+
+      - Should be short and concise.
+
+      -->
+
+<string name="input_field_label_name">이름</string>
+<string name="input_field_label_execution_count">처형</string>
+<string name="input_field_label_intent_extra_key">열쇠</string>
+<string name="input_field_label_event_state">주</string>
+<string name="input_field_toggle_event_type">새로운 이벤트 상태</string>
+<string name="input_field_label_change_counter_operation_value">가치</string>
+<string name="input_field_label_comparison_value">가치</string>
+<string name="input_field_label_change_counter_name">카운터 이름</string>
+<string name="input_field_label_timer_duration">(ms) 후</string>
+    <string name="input_field_label_broadcast_action" translatable="false">Broadcast Action</string>
+
+<string name="input_field_label_timer_duration_no_unit">이후</string>
+    <!--
+
+      - Dropdown input fields texts.
+
+      - Those fields are made of:
+
+      - * a label, describing the meaning of the field. Should be short and concise.
+
+      - * a set of items, made of:
+
+      -     * a title, displayed in the dropdown list and in the field if selected. Should be short and concise.
+
+      -     * a helper text (if needed), displayed bellow the field and changed with the selected item. Max 2 lines.
+
+      -->
+
+    <!-- Dropdown field for selecting the event state -->
+
+<string name="dropdown_item_title_event_state_enabled">사용 가능</string>
+<string name="dropdown_item_title_event_state_disabled">사용 불가능</string>
+<string name="dropdown_helper_text_event_state_enabled">시나리오 플레이 시 이벤트는 일반적으로 해석될 것입니다.</string>
+<string name="dropdown_helper_text_event_state_disabled">시나리오를 플레이할 때 행동에 의해 해당 이벤트를 활성화해 해석해야 합니다.</string>
+    <!-- Dropdown field for selecting the toggle event type -->
+
+<string name="dropdown_item_title_toggle_event_state_enable">사용 가능</string>
+<string name="dropdown_item_title_toggle_event_state_disable">비활성화</string>
+<string name="dropdown_item_title_toggle_event_state_toggle">전환</string>
+<string name="dropdown_helper_text_toggle_event_state_enable">시나리오 재생 시 통역이 시작됩니다</string>
+<string name="dropdown_helper_text_toggle_event_state_disable">시나리오를 실행하면 해당 이벤트의 통역이 중단됩니다.</string>
+<string name="dropdown_helper_text_toggle_event_state_toggle">시나리오 실행 시, 이벤트 비활성화 시 해석을 시작하고 활성화 시 해석을 중단합니다.</string>
+    <!-- Dropdown field for selecting the conditions operator -->
+
+<string name="dropdown_label_condition_operator">조건</string>
+<string name="dropdown_item_title_condition_or">1</string>
+<string name="dropdown_item_title_condition_and">모두</string>
+<string name="dropdown_helper_text_condition_or">실행하려면 하나의 조건만 충족해도 됩니다</string>
+<string name="dropdown_helper_text_condition_and">조건이 모두 충족되어야 행동이 실행됩니다.</string>
+    <!-- Dropdown field for selecting the end conditions operator. Item titles are the same as conditions operator. -->
+
+<string name="dropdown_helper_text_end_condition_or">시나리오를 중단하기 위해서는 단 하나의 조건만 충족되어야 합니다</string>
+<string name="dropdown_helper_text_end_condition_and">시나리오를 중단하려면 모든 조건이 충족되어야 합니다.</string>
+    <!-- Dropdown field for selecting the condition detection type. -->
+
+<string name="dropdown_label_condition_detection_type">검출 유형</string>
+<string name="dropdown_item_title_detection_type_exact">정확히</string>
+<string name="dropdown_item_title_detection_type_in_area">지역</string>
+<string name="dropdown_item_title_detection_type_screen">스크린</string>
+    <!-- Dropdown field for selecting the condition visibility. -->
+
+<string name="dropdown_label_condition_visibility">시야</string>
+<string name="dropdown_item_title_condition_visibility_present">현재</string>
+<string name="dropdown_item_title_condition_visibility_absent">불참석</string>
+<string name="dropdown_helper_text_condition_visibility_present">조건이 감지되어야 합니다</string>
+<string name="dropdown_helper_text_condition_visibility_absent">조건이 감지되어서는 안 됩니다.</string>
+    <!-- Dropdown field for selecting the click position type -->
+
+<string name="dropdown_label_click_position_type">- 클릭하세요
+- 클릭해 주세요
+- 여기를 눌러주세요</string>
+<string name="dropdown_item_title_click_position_type_on_condition">상태</string>
+<string name="dropdown_item_title_click_position_type_on_position">선택한 위치</string>
+<string name="dropdown_helper_text_click_position_type_on_condition">검출된 조건을 클릭하세요.</string>
+<string name="dropdown_helper_text_click_position_type_on_position">선택한 위치를 클릭해 주세요.</string>
+    <!-- Dropdown field for selecting the intent sending type. -->
+
+<string name="dropdown_label_intent_sending_type">유형</string>
+    <!--
+
+      - Dropdown field for selecting the intent extra type.
+
+      - All items for this field are not translatable.
+
+      -->
+
+<string name="dropdown_label_intent_extra_value_type">값 유형</string>
+<string name="dropdown_label_comparison_operator">운영자</string>
+    <!--
+
+      - Content description texts.
+
+      - They are use as accessibility texts for visually impaired people. They will not be displayed but spoken.
+
+      -->
+
+<string name="content_desc_event_state">이벤트 상태</string>
+<string name="content_desc_conditions_count">이번 이벤트의 조건 수</string>
+<string name="content_desc_actions_count">이 행사의 액션 숫자</string>
+<string name="content_desc_image_condition">식별할 이미지</string>
+<string name="content_desc_open_event_list">이벤트 목록 열기</string>
+<string name="content_desc_application_icon">시작할 애플리케이션 아이콘</string>
+    <!--
+
+      - The following strings should be kept the same in all languages.
+
+      - DO NOT TRANSLATE.
+
+      -->
+
+<string name="dialog_overlay_title_extra_config">외상</string>
+    <string name="dialog_scenario_settings_end_condition_card_executions" translatable="false">x%1$d</string>
+
+    <string name="section_title_intent_extra" translatable="false">Extras</string>
+
+    <string name="input_field_label_intent_action" translatable="false">Action</string>
+
+    <string name="input_field_label_intent_flags" translatable="false">Flags</string>
+
+    <string name="input_field_label_intent_component_name" translatable="false">Component name</string>
+
+    <string name="dropdown_item_title_intent_sending_type_activity" translatable="false">Start Activity</string>
+
+    <string name="dropdown_item_title_intent_sending_type_broadcast" translatable="false">Send Broadcast</string>
+
+    <string name="dropdown_item_title_extra_boolean_true" translatable="false">True</string>
+
+    <string name="dropdown_item_title_extra_boolean_false" translatable="false">False</string>
+
+    <string name="dropdown_item_intent_extra_type_boolean" translatable="false">Boolean</string>
+
+    <string name="dropdown_item_intent_extra_type_byte" translatable="false">Byte</string>
+
+    <string name="dropdown_item_intent_extra_type_char" translatable="false">Char</string>
+
+    <string name="dropdown_item_intent_extra_type_double" translatable="false">Double</string>
+
+    <string name="dropdown_item_intent_extra_type_int" translatable="false">Integer</string>
+
+    <string name="dropdown_item_intent_extra_type_float" translatable="false">Float</string>
+
+    <string name="dropdown_item_intent_extra_type_short" translatable="false">Short</string>
+
+    <string name="dropdown_item_intent_extra_type_string" translatable="false">String</string>
+
+    <string name="item_title_greater_or_equals" translatable="false">≥</string>
+
+    <string name="item_title_greater" translatable="false"><![CDATA[>]]></string>
+
+    <string name="item_title_equals" translatable="false">=</string>
+
+    <string name="item_title_lower_or_equals" translatable="false">≤</string>
+
+    <string name="item_title_lower" translatable="false"><![CDATA[<]]></string>
+
+    <string name="item_title_add" translatable="false">+</string>
+
+    <string name="item_title_set" translatable="false">=</string>
+
+    <string name="item_title_minus" translatable="false">-</string>
+
+</resources>

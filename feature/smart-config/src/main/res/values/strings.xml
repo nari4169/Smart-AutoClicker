@@ -312,7 +312,7 @@
       - The following strings should be kept the same in all languages.
       - DO NOT TRANSLATE.
       -->
-    <string name="dialog_overlay_title_extra_config" translatable="false">Extra</string>
+    <string name="dialog_overlay_title_extra_config">Extra</string>
     <string name="dialog_scenario_settings_end_condition_card_executions" translatable="false">x%1$d</string>
 
     <string name="section_title_intent_extra" translatable="false">Extras</string>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+* Copyright (C) 2023 Kevin Buzeau
+
+*
+
+* This program is free software: you can redistribute it and/or modify
+
+* it under the terms of the GNU General Public License as published by
+
+* the Free Software Foundation, either version 3 of the License, or
+
+* (at your option) any later version.
+
+*
+
+* This program is distributed in the hope that it will be useful,
+
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+
+* GNU General Public License for more details.
+
+*
+
+* You should have received a copy of the GNU General Public License
+
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<resources>
+
+    <!--
+
+      - Titles for the dialogs displayed from the activity.
+
+      - Regular Android dialog title characters size.
+
+      -->
+
+<string name="dialog_title_create_backup">백업 만들기</string>
+<string name="dialog_title_delete_scenario">시나리오 삭제</string>
+<string name="dialog_title_import_backup">백업 가져오기</string>
+    <!--
+
+      - Text for items in a list or vertical layout.
+
+      -  * Title should be short and concise.
+
+      -  * Desc can have more space to describe the title
+
+      -  * Error have the same space as desc
+
+      -->
+
+<string name="item_title_backup_create_select_file">출력 파일 선택</string>
+<string name="item_title_backup_import_select_file">백업 파일 선택</string>
+    <!--
+
+      - Messages.
+
+      - Views handles any length here, so no limitations.
+
+      -->
+
+<string name="message_backup_create_progress">백업 생성 중: %1$d/%2$d</string>
+<string name="message_backup_create_completed">백업이 완료되었습니다.</string>
+<string name="message_backup_create_error">오류가 발생하여 백업 내보내기가 취소되었습니다.</string>
+<string name="message_backup_import_progress">백업 가져오기: %1$d</string>
+<string name="message_backup_import_verification">데이터 검증</string>
+<string name="message_backup_import_completed">가져오기 완료\n%1$d개 시나리오가 가져와졌습니다.</string>
+<string name="message_backup_import_completed_with_error">가져오기 완료\n%1$d개 시나리오 가져옴\n%2$d개 오류</string>
+<string name="message_backup_import_error">오류가 발생했으므로 백업 가져오기를 취소했습니다</string>
+<string name="message_backup_import_compatibility">가져온 시나리오 중 일부는 다른 화면을 갖는 기기에서 생성되었고, 그로 인해 감지 및 액션 좌표에 문제가 생길 수 있습니다.
+
+이를 해결하려면 조건에 맞게 새로운 스크린샷을 찍고 클릭/스와이프 위치를 업데이트해야 합니다.</string>
+<string name="message_backup_error_no_zip_app">zip 파일을 처리할 수 있는 응용 프로그램이 기기에 없습니다.</string>
+    <!--
+
+      - Content description texts.
+
+      - They are use as accessibility texts for visually impaired people. They will not be displayed but spoken.
+
+      -->
+
+<string name="content_desc_backup_state">백업의 상태</string>
+</resources>

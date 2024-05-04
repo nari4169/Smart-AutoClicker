@@ -296,5 +296,6 @@
     <string name="content_desc_image_condition">要被检测的图像</string>
     <string name="content_desc_open_event_list">打开脚本列表</string>
     <string name="content_desc_application_icon">应用图标</string>
+    <string name="dialog_overlay_title_extra_config">Extra</string>
 
 </resources>

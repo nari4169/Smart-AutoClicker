@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+* Copyright (C) 2023 Kevin Buzeau
+
+*
+
+* This program is free software: you can redistribute it and/or modify
+
+* it under the terms of the GNU General Public License as published by
+
+* the Free Software Foundation, either version 3 of the License, or
+
+* (at your option) any later version.
+
+*
+
+* This program is distributed in the hope that it will be useful,
+
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+
+* GNU General Public License for more details.
+
+*
+
+* You should have received a copy of the GNU General Public License
+
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<resources>
+
+    <!--
+
+      - Titles for the dialogs displayed as overlay.
+
+      - Allowed characters can be small due to save/delete/close buttons.
+
+      -->
+
+<string name="dialog_overlay_title_debug_report">디버그 보고서</string>
+    <!--
+
+      - Text for items in a list or vertical layout.
+
+      -  * Title should be short and concise.
+
+      -  * Desc can have more space to describe the title
+
+      -  * Error have the same space as desc
+
+      -->
+
+<string name="item_title_report_total_duration">전체 구간</string>
+<string name="item_title_report_image_processed">처리된 이미지</string>
+<string name="item_title_report_avg_image_processing_duration">평균 처리 시간</string>
+<string name="item_title_report_total_event_trigger_count">발생한 이벤트</string>
+<string name="item_title_report_detection_count">발견된 상태</string>
+    <!--
+
+      - Section titles.
+
+      - Should be short and concise.
+
+      -->
+
+<string name="section_title_report_timing_min">민</string>
+<string name="section_title_report_timing_max">맥스</string>
+<string name="section_title_report_timing_avg">평균</string>
+<string name="section_title_report_event_trigger_count">촉발되었던</string>
+<string name="section_title_report_event_processing_count">가공됨</string>
+<string name="section_title_report_condition_detected_count">검출됨</string>
+<string name="section_title_report_condition_processing_count">가공됨</string>
+<string name="section_title_report_timing_title">처리 시간</string>
+<string name="section_title_report_confidence_title">탐지 신뢰도</string>
+    <!--
+
+      - The following strings should be kept the same in all languages.
+
+      - DO NOT TRANSLATE.
+
+      -->
+
+    <string name="item_title_debug_report_trigger_processed" translatable="false">%1$s / %2$s</string>
+
+</resources>

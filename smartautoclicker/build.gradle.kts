@@ -13,6 +13,19 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+  * 이 프로그램은 무료 소프트웨어이므로 재배포 및/또는 수정이 가능합니다.
+  * GNU 일반 공중 사용 허가서(GNU General Public License)의 조건에 따릅니다.
+  * 자유 소프트웨어 재단(라이센스 버전 3) 또는
+  * (귀하의 선택에 따라) 이후 버전.
+  *
+  * 본 프로그램은 유용하게 활용되길 바라는 마음으로 배포되며,
+  * 그러나 어떠한 보증도 제공되지 않습니다. 묵시적인 보증도 없이
+  * 특정 목적에 대한 상품성 또는 적합성. 참조
+  * 자세한 내용은 GNU 일반 공중 라이선스를 참조하세요.
+  *
+  * GNU General Public License 사본을 받았어야 합니다.
+  * 이 프로그램과 함께. 그렇지 않다면 <http://www.gnu.org/licenses/>를 참조하세요.
  */
 
 plugins {
