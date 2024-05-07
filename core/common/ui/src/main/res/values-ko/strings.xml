@@ -118,15 +118,8 @@
 <string name="dropdown_item_title_anti_detection_disabled">비활성화</string>
 <string name="dropdown_helper_text_anti_detection_enabled">클릭 스와이프 및 일시 정지 위치와 기간에 작은 임의 오프셋을 적용하여 임의화합니다.</string>
 <string name="dropdown_helper_text_anti_detection_disabled">모든 작업을 선언된 대로 실행하세요.</string>
-    <string name="dropdown_label_time_unit_ms" translatable="false">ms</string>
 
-    <string name="dropdown_label_time_unit_s" translatable="false">s</string>
-
-    <string name="dropdown_label_time_unit_min" translatable="false">min</string>
-
-    <string name="dropdown_label_time_unit_h" translatable="false">h</string>
-
-<string name="dropdown_label_time_unit">시간 단위</string>
+    <string name="dropdown_label_time_unit">시간 단위</string>
     <!--
 
       - Toast messages.

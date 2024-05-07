@@ -17,6 +17,7 @@
 @file:Suppress("DEPRECATION")
 package com.buzbuz.smartautoclicker.core.display
 
+import android.annotation.SuppressLint
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -40,6 +41,10 @@ import javax.inject.Singleton
  * Provides metrics for the screen such as orientation or display size.
  * In order for the metrics to be updated upon screen rotation, you must call [startMonitoring] first. Once the metrics
  * are no longer needed, call [stopMonitoring] to release all resources.
+ *
+ * 방향이나 디스플레이 크기 등 화면에 대한 측정 항목을 제공합니다.
+ * 화면 회전 시 지표를 업데이트하려면 먼저 [startMonitoring]을 호출해야 합니다. 일단 측정항목
+ *가 더 이상 필요하지 않으면 [stopMonitoring]을 호출하여 모든 리소스를 해제하세요.
  */
 @Singleton
 class DisplayMetrics @Inject constructor(
@@ -81,6 +86,7 @@ class DisplayMetrics @Inject constructor(
     }
 
     /** Start the monitoring of the screen metrics. */
+    @SuppressLint("WrongConstant")
     fun startMonitoring(context: Context) {
         updateScreenConfig()
 

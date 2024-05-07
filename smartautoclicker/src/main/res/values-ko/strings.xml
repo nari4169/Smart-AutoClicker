@@ -34,17 +34,13 @@
 
 <resources>
 
-    <string name="app_name" translatable="false">Smart AutoClicker</string>
-
-    <string name="notification_channel_name" translatable="false">Smart AutoClicker</string>
-
     <!-- Application wide texts. -->
 
 <string name="notification_title">시나리오: %1$s</string>
 <string name="notification_message">시나리오를 변경하려면 눌러주세요.</string>
 <string name="notification_button_toggle_menu">보기/숨기기</string>
 <string name="notification_button_stop">멈춰</string>
-<string name="activity_title">상황</string>
+<string name="activity_title">시나리오</string>
 <string name="accessibility_service_description">이 앱은 사용자님이 생성한 클릭을 조건이 감지되자마자 다른 앱에 삽입하기 위해 이 서비스를 필요로 합니다.
 
 이 앱에서는 데이터를 수집하지 않습니다. 언제든지 자유롭게 github를 방문하세요. 코드는 오픈 소스입니다!</string>
@@ -94,8 +90,8 @@
 <string name="item_desc_smart_scenario">이미지 탐지를 사용하여 복잡한 유스 케이스를 만듭니다.
 유료 한도가 포함되어 있습니다.</string>
 <string name="item_desc_smart_scenario_pro_mode">이미지 탐지를 활용해 복잡한 유스 케이스를 만들어 보세요.</string>
-<string name="item_title_dumb_scenario">쉽죠</string>
-<string name="item_title_smart_scenario">똑똑해</string>
+<string name="item_title_dumb_scenario">심플</string>
+<string name="item_title_smart_scenario">스마트</string>
     <!--
 
       - Empty list messages.
@@ -150,7 +146,7 @@
 
 <string name="button_text_create_scenario">시나리오 제작하기</string>
 <string name="button_request_permission">사용 허가 요청</string>
-<string name="button_deny"></string>
+<string name="button_deny">허용하지 않음</string>
     <!--
 
       - Content description texts.

@@ -51,6 +51,7 @@ internal fun OverlayManager.startDumbActionCreationUiFlow(
                 when (choice) {
                     DumbActionTypeChoice.Click -> onDumbClickCreationSelected(context, creator, listener)
                     DumbActionTypeChoice.Swipe -> onDumbSwipeCreationSelected(context, creator, listener)
+                    DumbActionTypeChoice.Entry -> onDumbEntryCreationSelected(context, creator, listener)
                     DumbActionTypeChoice.Pause -> startDumbPauseEditionFlow(context, creator.createNewDumbPause(), listener)
                 }
             },
@@ -115,6 +116,32 @@ private fun OverlayManager.startDumbClickEditionUiFlow(
             onConfirmClicked = listener.onDumbActionSaved,
             onDeleteClicked = listener.onDumbActionDeleted,
             onDismissClicked = listener.onDumbActionCreationCancelled,
+        ),
+        hideCurrent = true,
+    )
+}
+
+
+private fun OverlayManager.onDumbEntryCreationSelected(
+    context: Context,
+    creator: DumbActionCreator,
+    listener: DumbActionUiFlowListener
+) {
+    Log.e(TAG, "Dumb entry creation selected")
+    navigateTo(
+        context = context,
+        newOverlay = PositionSelectorMenu(
+            actionDescription = ClickDescription(),
+            onConfirm = { description ->
+                (description as? ClickDescription)?.position?.let { position ->
+                    startDumbClickEditionUiFlow(
+                        context = context,
+                        dumbClick = creator.createNewDumbClick(position.toPoint()),
+                        listener = listener,
+                    )
+                } ?: listener.onDumbActionCreationCancelled()
+            },
+            onDismiss = listener.onDumbActionCreationCancelled,
         ),
         hideCurrent = true,
     )

@@ -90,6 +90,19 @@ class LocalService(
      * @param data the data intent provided by the screen capture intent activity result callback
      * [android.app.Activity.onActivityResult]
      * @param scenario the identifier of the scenario of clicks to be used for detection.
+     *
+     * 오버레이 UI를 시작하고 감지 개체를 인스턴스화합니다.
+     *
+     * 이를 위해서는 미디어 프로젝션 권한 코드와 해당 데이터 의도가 필요하며 둘 다 다음을 사용하여 검색할 수 있습니다.
+     * [MediaProjectionManager.createScreenCaptureIntent]에서 제공한 활동 의도의 결과(이 의도
+     * 화면 녹화 개인 정보 보호에 대한 대화 상자 경고를 표시합니다). 이 메서드를 호출하지 않고 시도하면
+     * 올바른 화면 캡처 의도 결과로 인해 충돌이 발생합니다.
+     *
+     * @param resultCode 화면 캡처 인텐트 활동 결과 콜백에서 제공하는 결과 코드
+     * [android.app.Activity.onActivityResult]
+     * @param data 화면 캡처 의도 활동 결과 콜백에서 제공하는 데이터 의도
+     * [android.app.Activity.onActivityResult]
+     * @param 시나리오 탐지에 사용될 클릭 시나리오의 식별자입니다.
      */
     override fun startSmartScenario(resultCode: Int, data: Intent, scenario: Scenario) {
         if (isStarted) return

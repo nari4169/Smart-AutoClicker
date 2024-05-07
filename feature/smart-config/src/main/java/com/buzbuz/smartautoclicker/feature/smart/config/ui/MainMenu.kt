@@ -56,6 +56,15 @@ import kotlinx.coroutines.launch
  *
  * There is no overlay views attached to this overlay menu, meaning that the user will always be able to clicks on the
  * Activities displayed below it.
+ *
+ * 메인 메뉴 오버레이를 표시하기 위한 [OverlayMenu] 구현.
+ *
+ * [com.buzbuz.smartautoclicker.activity.ScenarioActivity]를 통해 서비스가 시작되면 표시되는 메뉴입니다.
+ * 사용자가 사용할 시나리오를 선택한 경우. 사용자가 현재 로드된 항목에서 감지를 시작할 수 있습니다.
+ * 시나리오 및 첨부된 이벤트 목록을 편집할 수 있습니다.
+ *
+ * 이 오버레이 메뉴에는 오버레이 보기가 첨부되어 있지 않습니다. 즉, 사용자는 항상
+ * 아래에 활동이 표시됩니다.
  */
 class MainMenu(private val onStopClicked: () -> Unit) : OverlayMenu() {
 
@@ -83,6 +92,8 @@ class MainMenu(private val onStopClicked: () -> Unit) : OverlayMenu() {
     /**
      * Tells if this service has handled onKeyEvent with ACTION_DOWN for a key in order to return
      * the correct value when ACTION_UP is received.
+     * 이 서비스가 반환하기 위해 키에 대해 ACTION_DOWN을 사용하여 onKeyEvent를 처리했는지 알려줍니다.
+     * ACTION_UP이 수신되면 올바른 값입니다.
      */
     private var keyDownHandled: Boolean = false
 

@@ -48,10 +48,16 @@ sealed class DumbActionTypeChoice(
         R.string.item_desc_dumb_pause,
         R.drawable.ic_wait,
     )
+    data object Entry : DumbActionTypeChoice(
+        R.string.item_title_dumb_entry,
+        R.string.item_desc_dumb_entry,
+        R.drawable.ic_keyboard,
+    )
 }
 
 fun allDumbActionChoices() = listOf(
     DumbActionTypeChoice.Click,
     DumbActionTypeChoice.Swipe,
     DumbActionTypeChoice.Pause,
+    DumbActionTypeChoice.Entry,
 )
