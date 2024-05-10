@@ -147,7 +147,7 @@ internal class InterstitialAdsDataSource @Inject constructor(
             if (loadRetries >= MAX_LOADING_RETRIES) {
                 _remoteAdState.emit(RemoteAdState.Error.LoadingError(errorCode, errorMessage))
                 loadRetries = 0
-                Log.e(TAG, "Can't load ad")
+                Log.d(TAG, "Can't load ad")
                 return@launch
             }
 

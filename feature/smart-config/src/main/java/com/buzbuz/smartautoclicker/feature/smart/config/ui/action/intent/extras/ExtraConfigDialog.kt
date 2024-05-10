@@ -191,7 +191,7 @@ class ExtraConfigDialog(
 
     private fun onExtraEditingStateChanged(isEditingExtra: Boolean) {
         if (!isEditingExtra) {
-            Log.e(TAG, "Closing ExtraConfigDialog because there is no intent extra edited")
+            Log.d(TAG, "Closing ExtraConfigDialog because there is no intent extra edited")
             finish()
         }
     }

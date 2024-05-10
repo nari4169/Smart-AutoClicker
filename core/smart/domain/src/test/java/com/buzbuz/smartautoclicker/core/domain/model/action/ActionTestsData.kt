@@ -56,7 +56,7 @@ internal object ActionTestsData {
         eventId: Long,
     ) = CompleteActionEntity(
         action = ActionEntity(id, eventId, priority, name, ActionType.CLICK, x = x, y = y,
-            clickOnConditionId = clickOnConditionId, clickPositionType = positionType,
+            clickOnConditionId = clickOnConditionId, clickPositionType = positionType, text = "",
             pressDuration = pressDuration),
         intentExtras = emptyList(),
         eventsToggle = emptyList(),
@@ -101,7 +101,7 @@ internal object ActionTestsData {
         eventId: Long,
     ) = CompleteActionEntity(
         action = ActionEntity(id, eventId, priority, name, ActionType.SWIPE, fromX = fromX, fromY = fromY, toX = toX,
-            toY = toY, swipeDuration = swipeDuration),
+            toY = toY,  text = "", swipeDuration = swipeDuration),
         intentExtras = emptyList(),
         eventsToggle = emptyList(),
     )
@@ -132,7 +132,7 @@ internal object ActionTestsData {
         pauseDuration: Long = PAUSE_DURATION,
         eventId: Long,
     ) = CompleteActionEntity(
-        action = ActionEntity(id, eventId, priority, name, ActionType.PAUSE, pauseDuration = pauseDuration),
+        action = ActionEntity(id, eventId, priority, name, ActionType.PAUSE,  text = "", pauseDuration = pauseDuration),
         intentExtras = emptyList(),
         eventsToggle = emptyList(),
     )
@@ -170,7 +170,7 @@ internal object ActionTestsData {
         intentExtras: List<IntentExtraEntity> = emptyList()
     ) = CompleteActionEntity(
         action = ActionEntity(id, eventId, priority, name, ActionType.INTENT, isAdvanced = isAdvanced,
-            isBroadcast = isBroadcast, intentAction = action, componentName = componentName, flags = flags),
+            isBroadcast = isBroadcast, intentAction = action, componentName = componentName,  text = "", flags = flags),
         intentExtras = intentExtras,
         eventsToggle = emptyList(),
     )
@@ -228,7 +228,7 @@ internal object ActionTestsData {
         eventToggles: List<EventToggleEntity> = emptyList(),
         eventId: Long,
     ) = CompleteActionEntity(
-        action = ActionEntity(id, eventId, priority, name, ActionType.TOGGLE_EVENT, toggleAll = toggleAll, toggleAllType = toggleType.toEntity()),
+        action = ActionEntity(id, eventId, priority, name, ActionType.TOGGLE_EVENT, toggleAll = toggleAll,  text = "", toggleAllType = toggleType.toEntity()),
         intentExtras = emptyList(),
         eventsToggle = eventToggles,
     )

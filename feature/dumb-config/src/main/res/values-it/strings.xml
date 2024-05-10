@@ -94,4 +94,7 @@
     <string name="content_desc_add_action">Aggiungere una nuova azione allo scenario</string>
     <string name="content_desc_show_actions">Mostrare o nascondere le azioni create</string>
     <string name="content_desc_open_action_list">Aprire l\'elenco delle azioni</string>
+    <string name="item_title_dumb_text">Testo</string>
+    <string name="input_field_label_text">Testo</string>
+    <string name="item_desc_dumb_text">Inserisci un messaggio da consegnare a un\'altra app.</string>
 </resources>

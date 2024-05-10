@@ -36,6 +36,11 @@ sealed class DumbActionTypeChoice(
         R.string.item_desc_dumb_click,
         R.drawable.ic_click,
     )
+    data object Text : DumbActionTypeChoice(
+        R.string.item_title_dumb_text,
+        R.string.item_desc_dumb_text,
+        R.drawable.ic_keyboard,
+    )
     /** Swipe Action choice. */
     data object Swipe : DumbActionTypeChoice(
         R.string.item_title_dumb_swipe,
@@ -52,6 +57,7 @@ sealed class DumbActionTypeChoice(
 
 fun allDumbActionChoices() = listOf(
     DumbActionTypeChoice.Click,
+    DumbActionTypeChoice.Text,
     DumbActionTypeChoice.Swipe,
     DumbActionTypeChoice.Pause,
 )

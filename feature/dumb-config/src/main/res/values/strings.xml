@@ -100,4 +100,7 @@
       - DO NOT TRANSLATE.
       -->
     <string name="title_action_count" translatable="false">%1$d/%2$d</string>
+    <string name="item_title_dumb_text">Text</string>
+    <string name="input_field_label_text">Text</string>
+    <string name="item_desc_dumb_text">"Enter a message to be delivered to another app. "</string>
 </resources>

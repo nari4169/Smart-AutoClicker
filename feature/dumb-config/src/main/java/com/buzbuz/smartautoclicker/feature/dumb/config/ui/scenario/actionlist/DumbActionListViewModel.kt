@@ -51,6 +51,9 @@ class DumbActionListViewModel @Inject constructor(
     fun createNewDumbClick(context: Context, position: Point): DumbAction.DumbClick =
         dumbEditionRepository.dumbActionBuilder.createNewDumbClick(context, position)
 
+    fun createNewDumbText(context: Context, position: Point): DumbAction.DumbText =
+        dumbEditionRepository.dumbActionBuilder.createNewDumbText(context, position)
+
     fun createNewDumbSwipe(context: Context, from: Point, to: Point): DumbAction.DumbSwipe =
         dumbEditionRepository.dumbActionBuilder.createNewDumbSwipe(context, from, to)
 

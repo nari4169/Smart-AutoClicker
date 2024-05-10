@@ -130,6 +130,7 @@ internal open class CompatV13Deserializer : CompatDeserializer() {
             type = ActionType.TOGGLE_EVENT,
             toggleAll = false,
             toggleAllType = null,
+            text = jsonToggleEvent.getString("text") ?: "",
         )
     }
 
@@ -193,6 +194,7 @@ internal open class CompatV13Deserializer : CompatDeserializer() {
             type = ActionType.TOGGLE_EVENT,
             toggleAll = true,
             toggleAllType = EventToggleType.DISABLE,
+            text = "",
         )
 
         val execCountActions = mutableMapOf<Long, ActionEntity>()
@@ -222,6 +224,7 @@ internal open class CompatV13Deserializer : CompatDeserializer() {
                 counterName = endConditionCounterName,
                 counterOperation = ChangeCounterOperationType.ADD,
                 counterOperationValue = 1,
+                text = "",
             )
         }
 

@@ -344,5 +344,7 @@
     <string name="item_title_add" translatable="false">+</string>
     <string name="item_title_set" translatable="false">=</string>
     <string name="item_title_minus" translatable="false">-</string>
+    <string name="dialog_overlay_title_text">Text</string>
+    <string name="input_field_label_text">Text Message</string>
 
 </resources>

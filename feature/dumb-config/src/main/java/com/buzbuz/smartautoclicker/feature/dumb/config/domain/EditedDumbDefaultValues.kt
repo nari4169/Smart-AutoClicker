@@ -30,6 +30,9 @@ import com.buzbuz.smartautoclicker.feature.dumb.config.data.getSwipeRepeatDelayC
 internal fun Context.getDefaultDumbClickName(): String =
     getString(R.string.default_dumb_click_name)
 
+internal fun Context.getDefaultTextName(): String =
+    getString(R.string.default_dumb_text_name)
+
 internal fun Context.getDefaultDumbClickDurationMs(): Long = getDumbConfigPreferences()
     .getClickPressDurationConfig(resources.getInteger(R.integer.default_dumb_click_press_duration).toLong())
 

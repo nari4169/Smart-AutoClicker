@@ -82,7 +82,7 @@ class EditionRepository @Inject constructor(
     /** Set the scenario to be configured. */
     suspend fun startEdition(scenarioId: Long): Boolean {
         val scenario = repository.getScenario(scenarioId) ?: run {
-            Log.e(TAG, "Can't start edition, scenario $scenarioId not found")
+            Log.d(TAG, "Can't start edition, scenario $scenarioId not found")
             return false
         }
 

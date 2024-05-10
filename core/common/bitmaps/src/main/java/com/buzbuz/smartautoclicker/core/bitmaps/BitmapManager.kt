@@ -81,7 +81,7 @@ internal class BitmapManager @Inject constructor(
 
         val file = File(appDataDir, path)
         if (!file.exists()) {
-            Log.e(TAG, "Invalid path $path, bitmap file can't be found.")
+            Log.d(TAG, "Invalid path $path, bitmap file can't be found.")
             return null
         }
 

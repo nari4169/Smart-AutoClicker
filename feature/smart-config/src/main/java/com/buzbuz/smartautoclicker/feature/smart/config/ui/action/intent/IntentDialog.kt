@@ -118,7 +118,7 @@ class IntentDialog(
 
     private fun onActionEditingStateChanged(isEditingAction: Boolean) {
         if (!isEditingAction) {
-            Log.e(TAG, "Closing IntentDialog because there is no action edited")
+            Log.d(TAG, "Closing IntentDialog because there is no action edited")
             finish()
         }
     }

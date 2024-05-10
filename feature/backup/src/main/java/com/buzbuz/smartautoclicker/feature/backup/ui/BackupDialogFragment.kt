@@ -201,7 +201,7 @@ class BackupDialogFragment : DialogFragment() {
             )
             true
         } catch (anfex: ActivityNotFoundException) {
-            Log.e(TAG, "No application found to load/save a zip file.")
+            Log.d(TAG, "No application found to load/save a zip file.")
             false
         }
 }

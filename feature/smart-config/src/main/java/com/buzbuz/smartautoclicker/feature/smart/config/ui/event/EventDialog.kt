@@ -193,7 +193,7 @@ class EventDialog(
 
     private fun onEventEditingStateChanged(isEditingScenario: Boolean) {
         if (!isEditingScenario) {
-            Log.e(TAG, "Closing EventDialog because there is no event edited")
+            Log.d(TAG, "Closing EventDialog because there is no event edited")
             finish()
         }
     }

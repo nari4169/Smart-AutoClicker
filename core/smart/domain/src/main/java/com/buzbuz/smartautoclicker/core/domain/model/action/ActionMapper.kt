@@ -25,12 +25,14 @@ import com.buzbuz.smartautoclicker.core.database.entity.CompleteActionEntity
 import com.buzbuz.smartautoclicker.core.database.entity.EventToggleType
 import com.buzbuz.smartautoclicker.core.base.identifier.Identifier
 import com.buzbuz.smartautoclicker.core.database.entity.ChangeCounterOperationType
+import com.buzbuz.smartautoclicker.core.database.entity.TextPositionType
 
 internal fun Action.toEntity(): ActionEntity {
     if (!isComplete()) throw IllegalStateException("Can't transform to entity, action is incomplete.")
 
     return when (this) {
         is Action.Click -> toClickEntity()
+        is Action.Text -> toTextEntity()
         is Action.Swipe -> toSwipeEntity()
         is Action.Pause -> toPauseEntity()
         is Action.Intent -> toIntentEntity()
@@ -50,6 +52,21 @@ private fun Action.Click.toClickEntity(): ActionEntity =
         x = x,
         y = y,
         clickOnConditionId = clickOnConditionId?.databaseId,
+        text = ""
+    )
+
+private fun Action.Text.toTextEntity(): ActionEntity =
+    ActionEntity(
+        id = id.databaseId,
+        eventId = eventId.databaseId,
+        name = name!!,
+        type = ActionType.CLICK,
+        pressDuration = pressDuration,
+        clickPositionType = positionType.toEntity(),
+        text = text!!,
+        x = x,
+        y = y,
+        clickOnConditionId = clickOnConditionId?.databaseId,
     )
 
 private fun Action.Swipe.toSwipeEntity(): ActionEntity =
@@ -63,6 +80,7 @@ private fun Action.Swipe.toSwipeEntity(): ActionEntity =
         fromY = fromY,
         toX = toX,
         toY = toY,
+        text = ""
     )
 
 private fun Action.Pause.toPauseEntity(): ActionEntity =
@@ -72,6 +90,7 @@ private fun Action.Pause.toPauseEntity(): ActionEntity =
         name = name!!,
         type = ActionType.PAUSE,
         pauseDuration = pauseDuration,
+        text = ""
     )
 
 private fun Action.Intent.toIntentEntity(): ActionEntity =
@@ -85,6 +104,7 @@ private fun Action.Intent.toIntentEntity(): ActionEntity =
         intentAction = intentAction,
         componentName = componentName?.flattenToString(),
         flags = flags,
+        text = ""
     )
 
 private fun Action.ToggleEvent.toToggleEventEntity(): ActionEntity =
@@ -95,6 +115,7 @@ private fun Action.ToggleEvent.toToggleEventEntity(): ActionEntity =
         type = ActionType.TOGGLE_EVENT,
         toggleAllType = toggleAllType?.toEntity(),
         toggleAll = toggleAll,
+        text = ""
     )
 
 private fun Action.ChangeCounter.toChangeCounterEntity(): ActionEntity =
@@ -106,12 +127,14 @@ private fun Action.ChangeCounter.toChangeCounterEntity(): ActionEntity =
         counterName = counterName,
         counterOperation = operation.toEntity(),
         counterOperationValue = operationValue,
+        text = ""
     )
 
 
 /** Convert an Action entity into a Domain Action. */
 internal fun CompleteActionEntity.toDomain(cleanIds: Boolean = false): Action = when (action.type) {
     ActionType.CLICK -> toDomainClick(cleanIds)
+    ActionType.TEXT -> toDomainText(cleanIds)
     ActionType.SWIPE -> toDomainSwipe(cleanIds)
     ActionType.PAUSE -> toDomainPause(cleanIds)
     ActionType.INTENT -> toDomainIntent(cleanIds)
@@ -126,6 +149,19 @@ private fun CompleteActionEntity.toDomainClick(cleanIds: Boolean = false) = Acti
     priority = action.priority,
     pressDuration = action.pressDuration!!,
     positionType = action.clickPositionType!!.toDomain(),
+    x = action.x,
+    y = action.y,
+    clickOnConditionId = action.clickOnConditionId?.let { Identifier(id = it, asTemporary = cleanIds) },
+)
+
+private fun CompleteActionEntity.toDomainText(cleanIds: Boolean = false) = Action.Text(
+    id = Identifier(id = action.id, asTemporary = cleanIds),
+    eventId = Identifier(id = action.eventId, asTemporary = cleanIds),
+    name = action.name,
+    priority = action.priority,
+    pressDuration = action.pressDuration!!,
+    positionType = action.textPositionType!!.toDomain(),
+    text = action.text,
     x = action.x,
     y = action.y,
     clickOnConditionId = action.clickOnConditionId?.let { Identifier(id = it, asTemporary = cleanIds) },
@@ -186,6 +222,9 @@ private fun CompleteActionEntity.toDomainChangeCounter(cleanIds: Boolean = false
 
 private fun ClickPositionType.toDomain(): Action.Click.PositionType =
     Action.Click.PositionType.valueOf(name)
+
+private fun TextPositionType.toDomain(): Action.Text.PositionType =
+    Action.Text.PositionType.valueOf(name)
 
 private fun EventToggleType.toDomain(): Action.ToggleEvent.ToggleType =
     Action.ToggleEvent.ToggleType.valueOf(name)

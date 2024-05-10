@@ -150,7 +150,7 @@
 
 <string name="button_text_create_scenario">시나리오 제작하기</string>
 <string name="button_request_permission">사용 허가 요청</string>
-<string name="button_deny"></string>
+<string name="button_deny">사용 허가 거절</string>
     <!--
 
       - Content description texts.

@@ -87,7 +87,7 @@ internal class BackupEngine(appDataDir: File, private val contentResolver: Conte
                     progress.onCompleted(dumbScenarios, smartScenarios, 0, false)
                 }
             } catch (ioEx: IOException) {
-                Log.e(TAG, "Error while creating backup archive.")
+                Log.d(TAG, "Error while creating backup archive.")
                 progress.onError()
             }
         }
@@ -149,7 +149,7 @@ internal class BackupEngine(appDataDir: File, private val contentResolver: Conte
                     smartBackupDataSource.screenCompatWarning,
                 )
             } catch (ioEx: IOException) {
-                Log.e(TAG, "Error while reading backup archive.")
+                Log.d(TAG, "Error while reading backup archive.")
                 progress.onError()
             }
         }

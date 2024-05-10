@@ -154,7 +154,7 @@ internal class ScenarioDataSource(
                 scenarioId.databaseId
             }
         } catch (ex: Exception) {
-            Log.e(TAG, "Error while inserting scenario copy", ex)
+            Log.d(TAG, "Error while inserting scenario copy", ex)
             null
         }
     }
@@ -175,7 +175,7 @@ internal class ScenarioDataSource(
 
             true
         } catch (ex: Exception) {
-            Log.e(TAG, "Error while updating scenario\n* Scenario=$scenario\n* Events=$events\n", ex)
+            Log.d(TAG, "Error while updating scenario\n* Scenario=$scenario\n* Events=$events\n", ex)
             false
         }
     }

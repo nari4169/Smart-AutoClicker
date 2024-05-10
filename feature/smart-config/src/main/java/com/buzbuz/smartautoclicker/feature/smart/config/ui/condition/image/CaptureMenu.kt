@@ -157,7 +157,7 @@ class CaptureMenu(
                         onConditionSelected(imageCondition)
                     }
                 } catch (ex: IllegalStateException) {
-                    Log.e(TAG, "Condition selection failed", ex)
+                    Log.d(TAG, "Condition selection failed", ex)
                     state = ADJUST
                 }
             }

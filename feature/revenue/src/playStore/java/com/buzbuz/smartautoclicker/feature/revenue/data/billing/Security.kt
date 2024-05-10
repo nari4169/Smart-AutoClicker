@@ -66,7 +66,7 @@ internal object Security {
             val key = generatePublicKey(BILLING_PUBLIC_KEY)
             verify(key, signedData, signature)
         } catch (e: IOException) {
-            Log.e(TAG, "Error generating PublicKey from encoded key: " + e.message)
+            Log.d(TAG, "Error generating PublicKey from encoded key: " + e.message)
             false
         }
     }
@@ -125,9 +125,9 @@ internal object Security {
         } catch (e: NoSuchAlgorithmException) {
             throw RuntimeException(e)
         } catch (e: InvalidKeyException) {
-            Log.e(TAG, "Invalid key specification.")
+            Log.d(TAG, "Invalid key specification.")
         } catch (e: SignatureException) {
-            Log.e(TAG, "Signature exception.")
+            Log.d(TAG, "Signature exception.")
         }
         return false
     }

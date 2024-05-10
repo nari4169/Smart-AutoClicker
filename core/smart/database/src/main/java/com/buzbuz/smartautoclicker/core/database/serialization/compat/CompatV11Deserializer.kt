@@ -70,6 +70,7 @@ internal open class CompatV11Deserializer : CompatV13Deserializer() {
             clickOnConditionId = clickOnConditionId,
             x = x,
             y = y,
+            text = "",
             pressDuration = jsonClick.getLong("pressDuration")
                 ?.coerceIn(DURATION_LOWER_BOUND..DURATION_GESTURE_UPPER_BOUND)
                 ?: DEFAULT_CLICK_DURATION,

@@ -193,7 +193,7 @@ class SwipeDialog(
 
     private fun onActionEditingStateChanged(isEditingAction: Boolean) {
         if (!isEditingAction) {
-            Log.e(TAG, "Closing ClickDialog because there is no action edited")
+            Log.d(TAG, "Closing ClickDialog because there is no action edited")
             finish()
         }
     }

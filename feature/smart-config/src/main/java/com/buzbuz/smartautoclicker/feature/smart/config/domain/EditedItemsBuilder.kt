@@ -282,6 +282,7 @@ class EditedItemsBuilder internal constructor(
 
     fun createNewActionFrom(from: Action, eventId: Identifier = getEditedEventIdOrThrow()): Action = when (from) {
         is Action.Click -> createNewClickFrom(from, eventId)
+        is Action.Text -> createNewTextFrom(from, eventId)
         is Action.Swipe -> createNewSwipeFrom(from, eventId)
         is Action.Pause -> createNewPauseFrom(from, eventId)
         is Action.Intent -> createNewIntentFrom(from, eventId)
@@ -298,6 +299,21 @@ class EditedItemsBuilder internal constructor(
         return from.copy(
             id = actionsIdCreator.generateNewIdentifier(),
             eventId = eventId,
+            name = "" + from.name,
+            clickOnConditionId = conditionId,
+        )
+    }
+
+    private fun createNewTextFrom(from: Action.Text, eventId: Identifier): Action.Text {
+        val conditionId =
+            if (from.clickOnConditionId != null)
+                eventCopyConditionIdMap[from.clickOnConditionId]
+            else null
+
+        return from.copy(
+            id = actionsIdCreator.generateNewIdentifier(),
+            eventId = eventId,
+            text = "" + from.text,
             name = "" + from.name,
             clickOnConditionId = conditionId,
         )

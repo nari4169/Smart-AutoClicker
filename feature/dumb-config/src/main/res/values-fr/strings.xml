@@ -96,4 +96,7 @@
     <string name="content_desc_add_action">Ajouter une nouvelle action au scénario</string>
     <string name="content_desc_show_actions">Afficher ou cacher les actions</string>
     <string name="content_desc_open_action_list">Ouvrir la liste des actions</string>
+    <string name="item_title_dumb_text">Texte</string>
+    <string name="input_field_label_text">Texte</string>
+    <string name="item_desc_dumb_text">Saisissez un message à transmettre à une autre application.</string>
 </resources>

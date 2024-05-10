@@ -53,6 +53,7 @@ class ActionBriefView @JvmOverloads constructor(
 
         renderer = when (description) {
             is ClickDescription -> ClickBriefRenderer(this, style, ::invalidate)
+            is TextDescription -> TextBriefRenderer(this, style, ::invalidate)
             is SwipeDescription -> SwipeBriefRenderer(this, style, ::invalidate)
             is PauseDescription -> PauseBriefRenderer(this, style, ::invalidate)
             else -> return

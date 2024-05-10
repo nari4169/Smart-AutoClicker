@@ -66,7 +66,7 @@ internal class BillingActivity : AppCompatActivity() {
                 .show(supportFragmentManager, PurchaseProModeFragment.FRAGMENT_TAG)
 
             else -> {
-                Log.e(TAG, "Invalid fragment tag $tag")
+                Log.d(TAG, "Invalid fragment tag $tag")
                 finish()
             }
         }

@@ -42,6 +42,7 @@ internal class DumbActionExecutor(private val androidExecutor: AndroidExecutor) 
         this.randomize = randomize
         when (action) {
             is DumbAction.DumbClick -> executeDumbClick(action)
+            is DumbAction.DumbText -> executeDumbText(action)
             is DumbAction.DumbSwipe -> executeDumbSwipe(action)
             is DumbAction.DumbPause -> executeDumbPause(action)
         }
@@ -54,6 +55,15 @@ internal class DumbActionExecutor(private val androidExecutor: AndroidExecutor) 
         )
 
         executeRepeatableGesture(clickGesture, dumbClick)
+    }
+
+    private suspend fun executeDumbText(dumbText: DumbAction.DumbText) {
+        val clickGesture = GestureDescription.Builder().buildSingleStroke(
+            path = Path().apply { moveTo(dumbText.position.x, dumbText.position.y) },
+            durationMs = dumbText.pressDurationMs.randomizeDurationIfNeeded(),
+        )
+
+        executeRepeatableGesture(clickGesture, dumbText)
     }
 
     private suspend fun executeDumbSwipe(dumbSwipe: DumbAction.DumbSwipe) {

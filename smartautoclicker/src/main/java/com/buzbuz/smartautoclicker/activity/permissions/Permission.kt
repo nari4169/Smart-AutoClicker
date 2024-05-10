@@ -85,7 +85,7 @@ sealed class Permission {
                 try {
                     context.startActivity(intent)
                 } catch (ex: ActivityNotFoundException) {
-                    Log.e(TAG, "Can't find device accessibility service settings menu.")
+                    Log.d(TAG, "Can't find device accessibility service settings menu.")
                 }
             }
         }
@@ -108,7 +108,7 @@ sealed class Permission {
                 try {
                     context.startActivity(intent)
                 } catch (ex: ActivityNotFoundException) {
-                    Log.e(TAG, "Can't find device overlay settings menu.")
+                    Log.d(TAG, "Can't find device overlay settings menu.")
                 }
             }
         }

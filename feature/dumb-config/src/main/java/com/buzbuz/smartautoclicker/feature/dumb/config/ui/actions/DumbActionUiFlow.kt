@@ -28,11 +28,13 @@ import com.buzbuz.smartautoclicker.core.ui.overlays.manager.OverlayManager
 import com.buzbuz.smartautoclicker.core.ui.overlays.menu.PositionSelectorMenu
 import com.buzbuz.smartautoclicker.core.ui.views.actionbrief.ClickDescription
 import com.buzbuz.smartautoclicker.core.ui.views.actionbrief.SwipeDescription
+import com.buzbuz.smartautoclicker.core.ui.views.actionbrief.TextDescription
 import com.buzbuz.smartautoclicker.feature.dumb.config.R
 import com.buzbuz.smartautoclicker.feature.dumb.config.ui.actions.click.DumbClickDialog
 import com.buzbuz.smartautoclicker.feature.dumb.config.ui.actions.copy.DumbActionCopyDialog
 import com.buzbuz.smartautoclicker.feature.dumb.config.ui.actions.pause.DumbPauseDialog
 import com.buzbuz.smartautoclicker.feature.dumb.config.ui.actions.swipe.DumbSwipeDialog
+import com.buzbuz.smartautoclicker.feature.dumb.config.ui.actions.text.DumbTextDialog
 
 internal fun OverlayManager.startDumbActionCreationUiFlow(
     context: Context,
@@ -50,6 +52,7 @@ internal fun OverlayManager.startDumbActionCreationUiFlow(
             onChoiceSelected = { choice ->
                 when (choice) {
                     DumbActionTypeChoice.Click -> onDumbClickCreationSelected(context, creator, listener)
+                    DumbActionTypeChoice.Text -> onDumbTextCreationSelected(context, creator, listener)
                     DumbActionTypeChoice.Swipe -> onDumbSwipeCreationSelected(context, creator, listener)
                     DumbActionTypeChoice.Pause -> startDumbPauseEditionFlow(context, creator.createNewDumbPause(), listener)
                 }
@@ -91,6 +94,7 @@ internal fun OverlayManager.startDumbActionEditionUiFlow(
 
     when (dumbAction) {
         is DumbAction.DumbClick -> startDumbClickEditionUiFlow(context, dumbAction, listener)
+        is DumbAction.DumbText -> startDumbTextEditionUiFlow(context, dumbAction, listener)
         is DumbAction.DumbSwipe -> startDumbSwipeEditionFlow(context, dumbAction, listener)
         is DumbAction.DumbPause -> startDumbPauseEditionFlow(context, dumbAction, listener)
     }
@@ -102,7 +106,7 @@ private fun OverlayManager.startDumbClickEditionUiFlow(
     listener: DumbActionUiFlowListener,
 ) {
     if (!dumbClick.isValid()) {
-        Log.e(TAG, "Can't start dumb click edition ui flow, click is invalid: $dumbClick")
+        Log.d(TAG, "Can't start dumb click edition ui flow, click is invalid: $dumbClick")
         listener.onDumbActionCreationCancelled()
         return
     }
@@ -112,6 +116,30 @@ private fun OverlayManager.startDumbClickEditionUiFlow(
         context = context,
         newOverlay = DumbClickDialog(
             dumbClick = dumbClick,
+            onConfirmClicked = listener.onDumbActionSaved,
+            onDeleteClicked = listener.onDumbActionDeleted,
+            onDismissClicked = listener.onDumbActionCreationCancelled,
+        ),
+        hideCurrent = true,
+    )
+}
+
+private fun OverlayManager.startDumbTextEditionUiFlow(
+    context: Context,
+    dumbText: DumbAction.DumbText,
+    listener: DumbActionUiFlowListener,
+) {
+    if (!dumbText.isValid()) {
+        Log.e(TAG, "Can't start dumb Text edition ui flow, click is invalid: $dumbText")
+        listener.onDumbActionCreationCancelled()
+        return
+    }
+    Log.e(TAG, "Starting dumb Text edition ui flow: $dumbText")
+
+    navigateTo(
+        context = context,
+        newOverlay = DumbTextDialog(
+            dumbText = dumbText,
             onConfirmClicked = listener.onDumbActionSaved,
             onDeleteClicked = listener.onDumbActionDeleted,
             onDismissClicked = listener.onDumbActionCreationCancelled,
@@ -146,13 +174,39 @@ private fun OverlayManager.onDumbClickCreationSelected(
     )
 }
 
+private fun OverlayManager.onDumbTextCreationSelected(
+    context: Context,
+    creator: DumbActionCreator,
+    listener: DumbActionUiFlowListener,
+) {
+    Log.e(TAG, "Dumb text creation selected, opening position selection menu")
+
+    navigateTo(
+        context = context,
+        newOverlay = PositionSelectorMenu(
+            actionDescription = TextDescription(),
+            onConfirm = { description ->
+                (description as? TextDescription)?.position?.let { position ->
+                    startDumbTextEditionUiFlow(
+                        context = context,
+                        dumbText = creator.createNewDumbText(position.toPoint()),
+                        listener = listener,
+                    )
+                } ?: listener.onDumbActionCreationCancelled()
+            },
+            onDismiss = listener.onDumbActionCreationCancelled,
+        ),
+        hideCurrent = true,
+    )
+}
+
 private fun OverlayManager.startDumbSwipeEditionFlow(
     context: Context,
     dumbSwipe: DumbAction.DumbSwipe,
     listener: DumbActionUiFlowListener,
 ) {
     if (!dumbSwipe.isValid()) {
-        Log.e(TAG, "Can't start dumb swipe edition ui flow, swipe is invalid: $dumbSwipe")
+        Log.d(TAG, "Can't start dumb swipe edition ui flow, swipe is invalid: $dumbSwipe")
         listener.onDumbActionCreationCancelled()
         return
     }
@@ -233,6 +287,7 @@ internal class DumbActionUiFlowListener(
 
 internal class DumbActionCreator(
     val createNewDumbClick: (position: Point) -> DumbAction.DumbClick,
+    val createNewDumbText: (position: Point) -> DumbAction.DumbText,
     val createNewDumbSwipe: (from: Point, to: Point) -> DumbAction.DumbSwipe,
     val createNewDumbPause: () -> DumbAction.DumbPause,
     val createDumbActionCopy: ((DumbAction) -> DumbAction)? = null,

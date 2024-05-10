@@ -75,7 +75,24 @@ internal object TestsData {
         clickPositionType: ClickPositionType = if (x != null && y != null) ClickPositionType.USER_SELECTED else ClickPositionType.ON_DETECTED_CONDITION,
     ) = CompleteActionEntity(
         action = ActionEntity(id, eventId, priority, name, ActionType.CLICK, x = x, y = y,
-            clickPositionType = clickPositionType, clickOnConditionId = clickOnConditionId, pressDuration = pressDuration),
+            clickPositionType = clickPositionType, clickOnConditionId = clickOnConditionId, text = "", pressDuration = pressDuration),
+        intentExtras = emptyList(),
+        eventsToggle = emptyList(),
+    )
+
+    fun getNewTextEntity(
+        id: Long = CLICK_ID,
+        name: String = CLICK_NAME,
+        pressDuration: Long = CLICK_PRESS_DURATION,
+        x: Int? = CLICK_X_POSITION,
+        y: Int? = CLICK_Y_POSITION,
+        eventId: Long,
+        priority: Int,
+        clickOnConditionId: Long? = null,
+        clickPositionType: ClickPositionType = if (x != null && y != null) ClickPositionType.USER_SELECTED else ClickPositionType.ON_DETECTED_CONDITION,
+    ) = CompleteActionEntity(
+        action = ActionEntity(id, eventId, priority, name, ActionType.CLICK, x = x, y = y,
+            clickPositionType = clickPositionType, clickOnConditionId = clickOnConditionId, text = "", pressDuration = pressDuration),
         intentExtras = emptyList(),
         eventsToggle = emptyList(),
     )
@@ -103,7 +120,7 @@ internal object TestsData {
         priority: Int,
     ) = CompleteActionEntity(
         action = ActionEntity(id, eventId, priority, name, ActionType.SWIPE, fromX = fromX, fromY = fromY, toX = toX,
-            toY = toY, swipeDuration = swipeDuration),
+            toY = toY, text = "", swipeDuration = swipeDuration),
         intentExtras = emptyList(),
         eventsToggle = emptyList(),
     )
@@ -122,7 +139,7 @@ internal object TestsData {
         eventId: Long,
         priority: Int,
     ) = CompleteActionEntity(
-        action = ActionEntity(id, eventId, priority, name, ActionType.PAUSE, pauseDuration = pauseDuration),
+        action = ActionEntity(id, eventId, priority, name, ActionType.PAUSE, text = "", pauseDuration = pauseDuration),
         intentExtras = emptyList(),
         eventsToggle = emptyList(),
     )
@@ -151,7 +168,7 @@ internal object TestsData {
         intentExtras: List<IntentExtraEntity> = emptyList()
     ) = CompleteActionEntity(
         action = ActionEntity(id, eventId, priority, name, ActionType.INTENT, isAdvanced = isAdvanced,
-            isBroadcast = isBroadcast, intentAction = action, componentName = componentName, flags = flags),
+            isBroadcast = isBroadcast, intentAction = action, componentName = componentName, text = "", flags = flags),
         intentExtras = intentExtras,
         eventsToggle = emptyList(),
     )

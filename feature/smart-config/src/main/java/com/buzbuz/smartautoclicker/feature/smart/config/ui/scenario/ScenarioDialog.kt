@@ -128,7 +128,7 @@ class ScenarioDialog(
 
     private fun onScenarioEditingStateChanged(isEditingScenario: Boolean) {
         if (!isEditingScenario) {
-            Log.e(TAG, "Closing ScenarioDialog because there is no scenario edited")
+            Log.d(TAG, "Closing ScenarioDialog because there is no scenario edited")
             finish()
         }
     }

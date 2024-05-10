@@ -332,6 +332,7 @@ internal abstract class CompatDeserializer : Deserializer {
     open fun deserializeAction(jsonAction: JsonObject, eventConditions: List<ConditionEntity>): ActionEntity? =
         when (deserializeActionType(jsonAction)) {
             ActionType.CLICK -> deserializeActionClick(jsonAction, eventConditions)
+            ActionType.TEXT -> deserializeActionText(jsonAction, eventConditions)
             ActionType.SWIPE -> deserializeActionSwipe(jsonAction)
             ActionType.PAUSE -> deserializeActionPause(jsonAction)
             ActionType.INTENT -> deserializeActionIntent(jsonAction)
@@ -379,6 +380,53 @@ internal abstract class CompatDeserializer : Deserializer {
             clickOnConditionId = clickOnConditionId,
             x = x,
             y = y,
+            text = "",
+            pressDuration = jsonClick.getLong("pressDuration")
+                ?.coerceIn(DURATION_LOWER_BOUND..DURATION_GESTURE_UPPER_BOUND)
+                ?: DEFAULT_CLICK_DURATION,
+        )
+    }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PROTECTED)
+    open fun deserializeActionText(jsonClick: JsonObject, eventConditions: List<ConditionEntity>): ActionEntity? {
+        val id = jsonClick.getLong("id", true) ?: return null
+        val eventId = jsonClick.getLong("eventId", true) ?: return null
+
+        val x: Int?
+        val y: Int?
+        val clickOnConditionId: Long?
+        val clickPositionType = jsonClick.getEnum<ClickPositionType>("clickPositionType", true)
+            ?: return null
+
+        when (clickPositionType) {
+            ClickPositionType.ON_DETECTED_CONDITION -> {
+                x = null
+                y = null
+                clickOnConditionId = jsonClick.getLong("clickOnConditionId", true) ?: return null
+                if (!eventConditions.containsId(clickOnConditionId)) {
+                    Log.w(TAG, "Can't deserialize action, clickOnConditionId is not valid.")
+                    return null
+                }
+            }
+
+            ClickPositionType.USER_SELECTED -> {
+                x = jsonClick.getInt("x", true) ?: return null
+                y = jsonClick.getInt("y", true) ?: return null
+                clickOnConditionId = null
+            }
+        }
+
+        return ActionEntity(
+            id = id,
+            eventId = eventId,
+            name = jsonClick.getString("name") ?: "",
+            priority = jsonClick.getInt("priority")?.coerceAtLeast(0) ?: 0,
+            type = ActionType.CLICK,
+            clickPositionType = clickPositionType,
+            clickOnConditionId = clickOnConditionId,
+            x = x,
+            y = y,
+            text = jsonClick.getString("text") ?: "",
             pressDuration = jsonClick.getLong("pressDuration")
                 ?.coerceIn(DURATION_LOWER_BOUND..DURATION_GESTURE_UPPER_BOUND)
                 ?: DEFAULT_CLICK_DURATION,
@@ -404,6 +452,7 @@ internal abstract class CompatDeserializer : Deserializer {
             fromY = fromY,
             toX = toX,
             toY = toY,
+            text = "",
             swipeDuration = jsonSwipe.getLong("swipeDuration")
                 ?.coerceIn(DURATION_LOWER_BOUND..DURATION_GESTURE_UPPER_BOUND)
                 ?: DEFAULT_SWIPE_DURATION,
@@ -421,6 +470,7 @@ internal abstract class CompatDeserializer : Deserializer {
             name = jsonPause.getString("name") ?: "",
             priority = jsonPause.getInt("priority")?.coerceAtLeast(0) ?: 0,
             type = ActionType.PAUSE,
+            text = "",
             pauseDuration = jsonPause.getLong("pauseDuration")?.coerceAtLeast(0) ?: DEFAULT_PAUSE_DURATION,
         )
     }
@@ -441,6 +491,7 @@ internal abstract class CompatDeserializer : Deserializer {
             isBroadcast = jsonIntent.getBoolean("isBroadcast") ?: false,
             intentAction = intentAction,
             componentName = jsonIntent.getString("componentName"),
+            text = "",
             flags = jsonIntent.getInt("flags")?.coerceAtLeast(0) ?: 0,
         )
     }
@@ -458,6 +509,7 @@ internal abstract class CompatDeserializer : Deserializer {
             priority = jsonToggleEvent.getInt("priority")?.coerceAtLeast(0) ?: 0,
             type = ActionType.TOGGLE_EVENT,
             toggleAll = toggleAll,
+            text = "",
             toggleAllType = jsonToggleEvent.getEnum<EventToggleType>("toggleEventType"),
         )
     }
@@ -479,6 +531,7 @@ internal abstract class CompatDeserializer : Deserializer {
             counterName = counterName,
             counterOperation = counterOperation,
             counterOperationValue = counterOperationValue,
+            text = "",
         )
     }
 

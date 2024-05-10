@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b05211a2355a19f04f67ee1c14299435",
+    "identityHash": "62332fc924846424472d1a19e9ed29de",
     "entities": [
       {
         "tableName": "dumb_scenario_table",
@@ -62,7 +62,7 @@
       },
       {
         "tableName": "dumb_action_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `dumb_scenario_id` INTEGER NOT NULL, `priority` INTEGER NOT NULL, `name` TEXT NOT NULL, `type` TEXT NOT NULL, `repeat_count` INTEGER, `is_repeat_infinite` INTEGER, `repeat_delay` INTEGER, `press_duration` INTEGER, `x` INTEGER, `y` INTEGER, `swipe_duration` INTEGER, `fromX` INTEGER, `fromY` INTEGER, `toX` INTEGER, `toY` INTEGER, `pause_duration` INTEGER, FOREIGN KEY(`dumb_scenario_id`) REFERENCES `dumb_scenario_table`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `dumb_scenario_id` INTEGER NOT NULL, `priority` INTEGER NOT NULL, `name` TEXT NOT NULL, `type` TEXT NOT NULL, `repeat_count` INTEGER, `is_repeat_infinite` INTEGER, `repeat_delay` INTEGER, `text` TEXT NOT NULL, `press_duration` INTEGER, `x` INTEGER, `y` INTEGER, `swipe_duration` INTEGER, `fromX` INTEGER, `fromY` INTEGER, `toX` INTEGER, `toY` INTEGER, `pause_duration` INTEGER, FOREIGN KEY(`dumb_scenario_id`) REFERENCES `dumb_scenario_table`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -111,6 +111,12 @@
             "columnName": "repeat_delay",
             "affinity": "INTEGER",
             "notNull": false
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
           },
           {
             "fieldPath": "pressDuration",
@@ -202,7 +208,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b05211a2355a19f04f67ee1c14299435')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '62332fc924846424472d1a19e9ed29de')"
     ]
   }
 }

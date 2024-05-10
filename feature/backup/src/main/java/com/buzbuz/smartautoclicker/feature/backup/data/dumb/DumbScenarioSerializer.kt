@@ -170,6 +170,7 @@ internal class DumbScenarioSerializer : ScenarioBackupSerializer<DumbScenarioBac
             type = DumbActionType.CLICK,
             x = x,
             y = y,
+            text = "",
             pressDuration = getLong("pressDuration")
                 ?.coerceIn(DURATION_LOWER_BOUND..DURATION_GESTURE_UPPER_BOUND)
                 ?: DEFAULT_DUMB_CLICK_DURATION,
@@ -205,6 +206,7 @@ internal class DumbScenarioSerializer : ScenarioBackupSerializer<DumbScenarioBac
             fromY = fromY,
             toX = toX,
             toY = toY,
+            text = "",
             swipeDuration = getLong("swipeDuration")
                 ?.coerceIn(DURATION_LOWER_BOUND..DURATION_GESTURE_UPPER_BOUND)
                 ?: DEFAULT_DUMB_SWIPE_DURATION,
@@ -231,6 +233,7 @@ internal class DumbScenarioSerializer : ScenarioBackupSerializer<DumbScenarioBac
             name = name,
             priority = getInt("priority")?.coerceAtLeast(0) ?: 0,
             type = DumbActionType.PAUSE,
+            text = "",
             pauseDuration = getLong("pauseDuration")
                 ?.coerceAtLeast(0)
                 ?: DEFAULT_DUMB_PAUSE_DURATION,

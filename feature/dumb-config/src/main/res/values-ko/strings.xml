@@ -148,6 +148,8 @@
 
       -->
 
-    <string name="title_action_count" translatable="false">%1$d/%2$d</string>
+    <string name="item_title_dumb_text">문자열</string>
+    <string name="input_field_label_text">문자열</string>
+    <string name="item_desc_dumb_text">다른 앱으로 전달할 메세지을 입력하세요\'</string>
 
 </resources>

@@ -94,4 +94,7 @@
     <string name="content_desc_add_action">在场景中添加新操作</string>
     <string name="content_desc_show_actions">显示或隐藏创建的操作</string>
     <string name="content_desc_open_action_list">打开操作列表</string>
+    <string name="item_title_dumb_text">文本</string>
+    <string name="input_field_label_text">文本</string>
+    <string name="item_desc_dumb_text">输入要传送到另一个应用程序的消息。</string>
 </resources>

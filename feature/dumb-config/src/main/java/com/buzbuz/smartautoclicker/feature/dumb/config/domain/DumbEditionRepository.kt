@@ -65,7 +65,7 @@ class DumbEditionRepository @Inject constructor(
     /** Set the scenario to be configured. */
     suspend fun startEdition(scenarioId: Long): Boolean {
         val scenario = dumbRepository.getDumbScenario(scenarioId) ?: run {
-            Log.e(TAG, "Can't start edition, dumb scenario $scenarioId not found")
+            Log.d(TAG, "Can't start edition, dumb scenario $scenarioId not found")
             return false
         }
 
@@ -161,6 +161,7 @@ class DumbEditionRepository @Inject constructor(
     private fun DumbAction.copyWithNewPriority(priority: Int): DumbAction =
         when (this) {
             is DumbAction.DumbClick -> copy(priority = priority)
+            is DumbAction.DumbText -> copy(priority = priority)
             is DumbAction.DumbPause -> copy(priority = priority)
             is DumbAction.DumbSwipe -> copy(priority = priority)
         }

@@ -165,7 +165,7 @@ class DetectorEngine @Inject constructor(
 
         val detector = NativeDetector.newInstance()
         if (detector == null) {
-            Log.e(TAG, "startDetection: native library not found.")
+            Log.d(TAG, "startDetection: native library not found.")
             _state.value = DetectorState.ERROR_NATIVE_DETECTOR_LIB_NOT_FOUND
             return
         }

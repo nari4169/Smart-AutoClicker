@@ -254,7 +254,7 @@ class ImageConditionDialog(
 
     private fun onConditionEditingStateChanged(isEditingCondition: Boolean) {
         if (!isEditingCondition) {
-            Log.e(TAG, "Closing ConditionDialog because there is no condition edited")
+            Log.d(TAG, "Closing ConditionDialog because there is no condition edited")
             finish()
         }
     }

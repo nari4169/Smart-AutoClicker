@@ -144,11 +144,11 @@ class TutorialRepository @Inject constructor(
     fun startTutorial(index: Int) {
         if (tutorialEngine.isStarted()) return
         if (scenarioId == null) {
-            Log.e(TAG, "Tutorial mode is not setup, can't start tutorial $index")
+            Log.d(TAG, "Tutorial mode is not setup, can't start tutorial $index")
             return
         }
         if (index < 0 || index >= dataSource.tutorialsInfo.size) {
-            Log.e(TAG, "Can't start tutorial, index is invalid $index")
+            Log.d(TAG, "Can't start tutorial, index is invalid $index")
             return
         }
 

@@ -53,6 +53,8 @@ data class DumbActionEntity(
     @ColumnInfo(name = "is_repeat_infinite") val isRepeatInfinite: Boolean? = null,
     @ColumnInfo(name = "repeat_delay") val repeatDelay: Long? = null,
 
+    @ColumnInfo(name = "text") val text: String,
+
     // ActionType.CLICK
     @ColumnInfo(name = "press_duration") val pressDuration: Long? = null,
     @ColumnInfo(name = "x") val x: Int? = null,
@@ -83,6 +85,8 @@ enum class DumbActionType {
     SWIPE,
     /** A pause, waiting before the next action. */
     PAUSE,
+
+    TEXT,
 }
 
 /** Type converter to read/write the [DumbActionType] into the database. */

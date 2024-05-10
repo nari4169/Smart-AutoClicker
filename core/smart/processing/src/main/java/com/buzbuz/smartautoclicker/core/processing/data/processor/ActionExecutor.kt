@@ -63,6 +63,7 @@ internal class ActionExecutor(
         event.actions.forEach { action ->
             when (action) {
                 is Click -> executeClick(event, action, results)
+                is Action.Text -> executeText(event, action, results)
                 is Swipe -> executeSwipe(action)
                 is Pause -> executePause(action)
                 is Action.Intent -> executeIntent(action)
@@ -91,12 +92,50 @@ internal class ActionExecutor(
         }
     }
 
+    private suspend fun executeText(event: Event, text1: Action.Text, results: ConditionsResult?) {
+        val textPath = when (text1.positionType) {
+            Action.Text.PositionType.USER_SELECTED -> Path().apply {
+                moveTo(text1.x!!, text1.y!!)
+            }
+
+            Action.Text.PositionType.ON_DETECTED_CONDITION ->
+                getOnConditionTextPath(event, text1, results)
+        } ?: return
+
+        val textGesture = GestureDescription.Builder().buildSingleStroke(
+            textPath, random.nextLongInOffsetIfNeeded(0, RANDOMIZATION_DURATION_MAX_OFFSET_MS)
+        )
+
+        withContext(Dispatchers.Main) {
+            androidExecutor.executeGesture(textGesture)
+        }
+    }
+
     private fun getOnConditionClickPath(event: Event, click: Click, results: ConditionsResult?): Path? {
         if (event !is ImageEvent) return null
 
         val result = when {
             event.conditionOperator == OR -> results?.getFirstImageDetectedResult()
             click.clickOnConditionId != null -> results?.getImageConditionResult(click.clickOnConditionId!!.databaseId)
+            else -> null
+        }
+
+        if (result == null) {
+            Log.w(TAG, "Click is invalid, can't execute")
+            return null
+        }
+
+        return Path().apply {
+            moveTo(result.position.x, result.position.y)
+        }
+    }
+
+    private fun getOnConditionTextPath(event: Event, text: Action.Text, results: ConditionsResult?): Path? {
+        if (event !is ImageEvent) return null
+
+        val result = when {
+            event.conditionOperator == OR -> results?.getFirstImageDetectedResult()
+            text.clickOnConditionId != null -> results?.getImageConditionResult(text.clickOnConditionId!!.databaseId)
             else -> null
         }
 

@@ -70,7 +70,7 @@ class TutorialStateDataSource @Inject constructor(
             }
         }
 
-        if (scenarioDbId == null) Log.e(TAG, "Can't get the scenario for the tutorial $tutorialIndex")
+        if (scenarioDbId == null) Log.d(TAG, "Can't get the scenario for the tutorial $tutorialIndex")
         return scenarioDbId
     }
 

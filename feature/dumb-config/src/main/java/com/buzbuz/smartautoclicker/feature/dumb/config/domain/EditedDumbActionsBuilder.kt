@@ -51,6 +51,19 @@ class EditedDumbActionsBuilder {
             repeatDelayMs = context.getDefaultDumbClickRepeatDelay(),
         )
 
+    fun createNewDumbText(context: Context, position: Point): DumbAction.DumbText =
+        DumbAction.DumbText(
+            id = dumbActionsIdCreator.generateNewIdentifier(),
+            scenarioId = getEditedScenarioIdOrThrow(),
+            name = context.getDefaultDumbClickName(),
+            position = position,
+            pressDurationMs = context.getDefaultDumbClickDurationMs(),
+            repeatCount = context.getDefaultDumbClickRepeatCount(),
+            isRepeatInfinite = false,
+            text = context.getDefaultTextName(),
+            repeatDelayMs = context.getDefaultDumbClickRepeatDelay(),
+        )
+
     fun createNewDumbSwipe(context: Context, from: Point, to: Point): DumbAction.DumbSwipe =
         DumbAction.DumbSwipe(
             id = dumbActionsIdCreator.generateNewIdentifier(),
@@ -75,6 +88,10 @@ class EditedDumbActionsBuilder {
     fun createNewDumbActionFrom(from: DumbAction): DumbAction =
         when (from) {
             is DumbAction.DumbClick -> from.copy(
+                id = dumbActionsIdCreator.generateNewIdentifier(),
+                scenarioId = getEditedScenarioIdOrThrow(),
+            )
+            is DumbAction.DumbText -> from.copy(
                 id = dumbActionsIdCreator.generateNewIdentifier(),
                 scenarioId = getEditedScenarioIdOrThrow(),
             )

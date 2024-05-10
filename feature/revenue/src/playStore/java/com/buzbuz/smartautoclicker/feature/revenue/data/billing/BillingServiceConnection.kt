@@ -67,7 +67,7 @@ internal class BillingServiceConnection(
             try {
                 billingClient.startConnection(this@BillingServiceConnection)
             } catch (isex: IllegalStateException) {
-                Log.e(TAG, "connectToBillingService", isex)
+                Log.d(TAG, "connectToBillingService", isex)
             }
         }, reconnectMilliseconds)
         reconnectMilliseconds = min(reconnectMilliseconds * 2, RECONNECT_TIMER_MAX_TIME_MILLISECONDS)

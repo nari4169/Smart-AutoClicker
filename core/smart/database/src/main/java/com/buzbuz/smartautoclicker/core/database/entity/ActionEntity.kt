@@ -105,6 +105,9 @@ data class ActionEntity(
     @ColumnInfo(name = "clickOnConditionId") var clickOnConditionId: Long? = null,
     @ColumnInfo(name = "pressDuration") val pressDuration: Long? = null,
 
+    @ColumnInfo(name = "textPositionType") val textPositionType: TextPositionType? = null,
+    @ColumnInfo(name = "text") val text: String,
+
     // ActionType.SWIPE
     @ColumnInfo(name = "fromX") val fromX: Int? = null,
     @ColumnInfo(name = "fromY") val fromY: Int? = null,
@@ -152,6 +155,8 @@ enum class ActionType {
     TOGGLE_EVENT,
     /** Change the value of a counter. */
     CHANGE_COUNTER,
+
+    TEXT,
 }
 
 /**
@@ -161,6 +166,17 @@ enum class ActionType {
  * /!\ DO NOT RENAME: ClickPositionType enum name is used in the database.
  */
 enum class ClickPositionType {
+    /** The user must manually select a position to be clicked. */
+    USER_SELECTED,
+    /**
+     * Click on the detected condition.
+     * When the condition operator is AND, click on the condition specified by the user.
+     * When the condition operator is OR, click on the condition detected condition.
+     */
+    ON_DETECTED_CONDITION,
+}
+
+enum class TextPositionType {
     /** The user must manually select a position to be clicked. */
     USER_SELECTED,
     /**

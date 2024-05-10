@@ -29,6 +29,7 @@ import com.buzbuz.smartautoclicker.core.ui.views.actionbrief.ActionDescription
 import com.buzbuz.smartautoclicker.core.ui.views.actionbrief.ClickDescription
 import com.buzbuz.smartautoclicker.core.ui.views.actionbrief.PauseDescription
 import com.buzbuz.smartautoclicker.core.ui.views.actionbrief.SwipeDescription
+import com.buzbuz.smartautoclicker.core.ui.views.actionbrief.TextDescription
 import com.buzbuz.smartautoclicker.feature.dumb.config.ui.scenario.actionlist.DumbActionDetails
 import com.buzbuz.smartautoclicker.feature.dumb.config.ui.scenario.actionlist.toDumbActionDetails
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -80,6 +81,9 @@ class DumbScenarioBriefViewModel @Inject constructor(
     fun createNewDumbClick(context: Context, position: Point): DumbAction.DumbClick =
         dumbEditionRepository.dumbActionBuilder.createNewDumbClick(context, position)
 
+    fun createNewDumbText(context: Context, position: Point): DumbAction.DumbText =
+        dumbEditionRepository.dumbActionBuilder.createNewDumbText(context, position)
+
     fun createNewDumbSwipe(context: Context, from: Point, to: Point): DumbAction.DumbSwipe =
         dumbEditionRepository.dumbActionBuilder.createNewDumbSwipe(context, from, to)
 
@@ -108,6 +112,11 @@ class DumbScenarioBriefViewModel @Inject constructor(
 private fun DumbScenario.toFocusedActionDetails(focusIndex: Int): FocusedActionDetails {
     val description = when (val dumbAction = dumbActions[focusIndex]) {
         is DumbAction.DumbClick -> ClickDescription(
+            position = dumbAction.position.toPointF(),
+            pressDurationMs = dumbAction.pressDurationMs,
+        )
+
+        is DumbAction.DumbText -> TextDescription(
             position = dumbAction.position.toPointF(),
             pressDurationMs = dumbAction.pressDurationMs,
         )

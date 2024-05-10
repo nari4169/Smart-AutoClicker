@@ -29,6 +29,7 @@ import com.buzbuz.smartautoclicker.feature.smart.config.ui.action.intent.extras.
 import com.buzbuz.smartautoclicker.feature.smart.config.ui.action.intent.flags.FlagsSelectionViewModel
 import com.buzbuz.smartautoclicker.feature.smart.config.ui.action.pause.PauseViewModel
 import com.buzbuz.smartautoclicker.feature.smart.config.ui.action.swipe.SwipeViewModel
+import com.buzbuz.smartautoclicker.feature.smart.config.ui.action.text.TextViewModel
 import com.buzbuz.smartautoclicker.feature.smart.config.ui.action.toggleevent.EventTogglesViewModel
 import com.buzbuz.smartautoclicker.feature.smart.config.ui.action.toggleevent.ToggleEventViewModel
 import com.buzbuz.smartautoclicker.feature.smart.config.ui.common.counter.CounterNameSelectionViewModel
@@ -66,6 +67,7 @@ interface ScenarioConfigViewModelsEntryPoint {
     fun captureViewModel(): CaptureViewModel
     fun changeCounterViewModel(): ChangeCounterViewModel
     fun clickViewModel(): ClickViewModel
+    fun textViewModel(): TextViewModel
     fun componentSelectionViewModel(): ComponentSelectionModel
     fun conditionCopyViewModel(): ConditionCopyModel
     fun conditionsViewModel(): ConditionsViewModel

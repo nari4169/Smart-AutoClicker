@@ -17,6 +17,7 @@
 -->
 <resources>
     <string name="default_dumb_click_name" translatable="false">Click</string>
+    <string name="default_dumb_text_name" translatable="false">Text</string>
     <integer name="default_dumb_click_press_duration">1</integer>
 
     <string name="default_dumb_swipe_name" translatable="false">Swipe</string>

@@ -90,7 +90,7 @@ class DumbScenarioDataSource @Inject constructor(
 
             scenarioId
         } catch (ex: Exception) {
-            Log.e(TAG, "Error while inserting scenario copy", ex)
+            Log.d(TAG, "Error while inserting scenario copy", ex)
             null
         }
     }

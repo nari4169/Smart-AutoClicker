@@ -63,6 +63,7 @@ fun DumbAction.toDumbActionDetails(
 ): DumbActionDetails =
     when (this) {
         is DumbAction.DumbClick -> toClickDetails(context, withPositions, inError)
+        is DumbAction.DumbText -> toTextDetails(context, withPositions, inError)
         is DumbAction.DumbSwipe -> toSwipeDetails(context, withPositions, inError)
         is DumbAction.DumbPause -> toPauseDetails(context, withPositions, inError)
         else -> throw IllegalArgumentException("Not yet supported")
@@ -71,6 +72,26 @@ fun DumbAction.toDumbActionDetails(
 private fun DumbAction.DumbClick.toClickDetails(context: Context, withPositions: Boolean, inError: Boolean): DumbActionDetails =
     DumbActionDetails(
         icon = R.drawable.ic_click,
+        name = name,
+        detailsText = when {
+            inError -> context.getString(R.string.item_error_action_invalid_generic)
+            withPositions -> context.getString(
+                R.string.item_desc_dumb_click_details,
+                formatDuration(pressDurationMs), position.x, position.y,
+            )
+            else -> context.getString(
+                R.string.item_desc_dumb_action_duration,
+                formatDuration(pressDurationMs),
+            )
+        },
+        repeatCountText = context.getString(R.string.item_desc_dumb_repeat_count, repeatCount),
+        haveError = inError,
+        action = this,
+    )
+
+private fun DumbAction.DumbText.toTextDetails(context: Context, withPositions: Boolean, inError: Boolean): DumbActionDetails =
+    DumbActionDetails(
+        icon = R.drawable.ic_keyboard,
         name = name,
         detailsText = when {
             inError -> context.getString(R.string.item_error_action_invalid_generic)

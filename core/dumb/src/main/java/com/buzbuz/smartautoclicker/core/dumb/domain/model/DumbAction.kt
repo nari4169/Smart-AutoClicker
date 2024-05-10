@@ -47,6 +47,23 @@ sealed class DumbAction : Identifiable {
             name.isNotEmpty() && pressDurationMs > 0 && isRepeatCountValid() && isRepeatDelayValid()
     }
 
+    data class DumbText(
+        override val id: Identifier,
+        override val scenarioId: Identifier,
+        override val name: String,
+        override val priority: Int = 0,
+        override val repeatCount: Int,
+        override val isRepeatInfinite: Boolean,
+        override val repeatDelayMs: Long,
+        val text: String,
+        val position: Point,
+        val pressDurationMs: Long,
+    ) : DumbAction(), RepeatableWithDelay {
+
+        override fun isValid(): Boolean =
+            name.isNotEmpty() && pressDurationMs > 0 && isRepeatCountValid() && isRepeatDelayValid()
+    }
+
     data class DumbSwipe(
         override val id: Identifier,
         override val scenarioId: Identifier,

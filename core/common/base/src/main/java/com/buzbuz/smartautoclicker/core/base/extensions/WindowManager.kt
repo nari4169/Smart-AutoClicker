@@ -42,7 +42,7 @@ fun WindowManager.safeAddView(view: View?, params: WindowManager.LayoutParams?):
         addView(view, params)
         true
     } catch (ex: WindowManager.BadTokenException) {
-        Log.e(TAG, "Can't add view to window manager, permission is denied !")
+        Log.d(TAG, "Can't add view to window manager, permission is denied !")
         false
     }
 }
@@ -60,7 +60,7 @@ fun WindowManager.LayoutParams.disableMoveAnimations() {
                 setInt(wp, getInt(wp) or noAnimFlagField.getInt(wp))
             }
         } catch (e: Exception) {
-            Log.e(TAG, "Can't disable move animations !")
+            Log.d(TAG, "Can't disable move animations !")
         }
     }
 }
