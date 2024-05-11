@@ -128,6 +128,7 @@ data class ScenarioListUiState(
                 override val scenario: DumbScenario,
                 override val showExportCheckbox: Boolean = false,
                 override val checkedForExport: Boolean = false,
+                val textCount: Int,
                 val clickCount: Int,
                 val swipeCount: Int,
                 val pauseCount: Int,

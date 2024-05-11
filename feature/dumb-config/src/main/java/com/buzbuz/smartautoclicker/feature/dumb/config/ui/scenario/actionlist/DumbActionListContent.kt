@@ -17,6 +17,7 @@
 package com.buzbuz.smartautoclicker.feature.dumb.config.ui.scenario.actionlist
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 
@@ -142,6 +143,9 @@ class DumbActionListContent(appContext: Context) : NavBarDialogContent(appContex
     }
 
     private fun updateDumbActionList(newList: List<DumbActionDetails>) {
+        for (item in newList) {
+            Log.e("", "updateDumbActionList=${item.action.name}")
+        }
         viewBinding.updateState(newList)
         dumbActionsAdapter.submitList(newList)
     }

@@ -51,6 +51,11 @@ internal fun SharedPreferences.getClickRepeatDelayConfig(default: Long) : Long =
 internal fun SharedPreferences.Editor.putClickRepeatDelayConfig(durationMs: Long) : SharedPreferences.Editor =
     putLong(PREF_LAST_CLICK_REPEAT_DELAY, durationMs)
 
+internal fun SharedPreferences.Editor.putTextMessage(text: String) : SharedPreferences.Editor =
+    putString(DUMB_CONFIG_TEXT, text)
+
+internal fun SharedPreferences.getTextMessage(default: String) : String =
+    getString(DUMB_CONFIG_TEXT, default).toString()
 
 /** @return the default duration for a swipe. */
 internal fun SharedPreferences.getSwipeDurationConfig(default: Long) : Long =
@@ -85,7 +90,7 @@ internal fun SharedPreferences.getPauseDurationConfig(default: Long) : Long =
 internal fun SharedPreferences.Editor.putPauseDurationConfig(durationMs: Long) : SharedPreferences.Editor =
     putLong(PREF_LAST_PAUSE_DURATION, durationMs)
 
-
+private const val DUMB_CONFIG_TEXT = "Dumb_Text"
 /** Name of the preference file. */
 private const val DUMB_CONFIG_PREFERENCES_NAME = "DumbConfigPreferences"
 /** User last click press duration key in the SharedPreferences. */

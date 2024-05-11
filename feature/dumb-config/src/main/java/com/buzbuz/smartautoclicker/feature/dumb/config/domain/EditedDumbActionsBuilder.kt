@@ -55,12 +55,12 @@ class EditedDumbActionsBuilder {
         DumbAction.DumbText(
             id = dumbActionsIdCreator.generateNewIdentifier(),
             scenarioId = getEditedScenarioIdOrThrow(),
-            name = context.getDefaultDumbClickName(),
+            name = context.getDefaultDumbTextName(),
             position = position,
             pressDurationMs = context.getDefaultDumbClickDurationMs(),
             repeatCount = context.getDefaultDumbClickRepeatCount(),
             isRepeatInfinite = false,
-            text = context.getDefaultTextName(),
+            text = context.getDefaultText(),
             repeatDelayMs = context.getDefaultDumbClickRepeatDelay(),
         )
 

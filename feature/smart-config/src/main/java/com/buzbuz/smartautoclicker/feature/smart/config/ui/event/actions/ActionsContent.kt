@@ -44,6 +44,7 @@ import com.buzbuz.smartautoclicker.feature.smart.config.di.ScenarioConfigViewMod
 import com.buzbuz.smartautoclicker.feature.smart.config.ui.action.ActionTypeSelectionDialog
 import com.buzbuz.smartautoclicker.feature.smart.config.ui.action.OnActionConfigCompleteListener
 import com.buzbuz.smartautoclicker.feature.smart.config.ui.action.changecounter.ChangeCounterDialog
+import com.buzbuz.smartautoclicker.feature.smart.config.ui.action.text.TextDialog
 
 import kotlinx.coroutines.launch
 
@@ -169,6 +170,7 @@ class ActionsContent(appContext: Context) : NavBarDialogContent(appContext) {
 
         val overlay = when (action) {
             is Action.Click -> ClickDialog(actionConfigDialogListener)
+            is Action.Text -> TextDialog(actionConfigDialogListener)
             is Action.Swipe -> SwipeDialog(actionConfigDialogListener)
             is Action.Pause -> PauseDialog(actionConfigDialogListener)
             is Action.Intent -> IntentDialog(actionConfigDialogListener)

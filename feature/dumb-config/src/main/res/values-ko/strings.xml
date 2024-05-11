@@ -79,7 +79,7 @@
 <string name="item_title_dumb_click">클릭</string>
 <string name="item_title_dumb_pause">기다리기</string>
 <string name="item_title_dumb_swipe">끌어당기기</string>
-<string name="item_title_no_dumb_actions">조치 없음</string>
+<string name="item_title_no_dumb_actions">액션이 없음</string>
     <!--
 
       - Empty list messages.
@@ -88,8 +88,8 @@
 
       -->
 
-<string name="message_empty_dumb_action_list">작업이 없습니다!</string>
-<string name="message_empty_secondary_dumb_action_list">시나리오를 실행하려면 적어도 하나의 조치가 필요합니다.</string>
+<string name="message_empty_dumb_action_list">액션이 없습니다!</string>
+<string name="message_empty_secondary_dumb_action_list">시나리오를 실행하려면 적어도 하나의 액션이 필요합니다.</string>
     <!--
 
       - Messages.
@@ -98,7 +98,7 @@
 
       -->
 
-<string name="message_dumb_brief_empty_action_list">시나리오를 실행하려면 최소한 한 가지 조치가 필요합니다.</string>
+<string name="message_dumb_brief_empty_action_list">시나리오를 실행하려면 최소한 한 가지 액션이 필요합니다.</string>
     <!--
 
       - List header.
@@ -108,7 +108,7 @@
       -->
 
 <string name="list_header_copy_dumb_action_this">이 시나리오에서 발생하는 상황</string>
-<string name="list_header_copy_dumb_action_all">모든 시나리오에서의 조치</string>
+<string name="list_header_copy_dumb_action_all">모든 시나리오에서의 액션</string>
     <!--
 
       - SearchView hint
@@ -150,6 +150,7 @@
 
     <string name="item_title_dumb_text">문자열</string>
     <string name="input_field_label_text">문자열</string>
-    <string name="item_desc_dumb_text">다른 앱으로 전달할 메세지을 입력하세요\'</string>
+    <string name="item_desc_dumb_text">다른 앱으로 전달할 메세지을 입력하세요</string>
+    <string name="default_dumb_text">예시 문장</string>
 
 </resources>

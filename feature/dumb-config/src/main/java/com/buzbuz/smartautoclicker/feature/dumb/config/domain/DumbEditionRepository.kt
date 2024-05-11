@@ -101,7 +101,7 @@ class DumbEditionRepository @Inject constructor(
     fun addNewDumbAction(dumbAction: DumbAction, insertionIndex: Int? = null) {
         val editedScenario = _editedDumbScenario.value ?: return
 
-        Log.d(TAG, "Add dumb action to edited scenario $dumbAction at position $insertionIndex")
+        Log.e(TAG, "Add dumb action to edited scenario $dumbAction at position $insertionIndex")
         _editedDumbScenario.value = editedScenario.copy(
             dumbActions = editedScenario.dumbActions.toMutableList().apply {
                 if (insertionIndex != null && insertionIndex in editedScenario.dumbActions.indices) {
@@ -120,10 +120,10 @@ class DumbEditionRepository @Inject constructor(
         val editedScenario = _editedDumbScenario.value ?: return
         val actionIndex = editedScenario.dumbActions.indexOfFirst { it.id == dumbAction.id }
         if (actionIndex == -1) {
-            Log.w(TAG, "Can't update action, it is not in the edited scenario.")
+            Log.e(TAG, "Can't update action, it is not in the edited scenario.")
             return
         }
-
+        Log.e(TAG, "Update dumb action to edited scenario $dumbAction ")
         _editedDumbScenario.value = editedScenario.copy(
             dumbActions = editedScenario.dumbActions.toMutableList().apply {
                 set(actionIndex, dumbAction)
@@ -135,7 +135,7 @@ class DumbEditionRepository @Inject constructor(
         val editedScenario = _editedDumbScenario.value ?: return
         val deleteIndex = editedScenario.dumbActions.indexOfFirst { it.id == dumbAction.id }
 
-        Log.d(TAG, "Delete dumb action from edited scenario $dumbAction")
+        Log.e(TAG, "Delete dumb action from edited scenario $dumbAction")
         _editedDumbScenario.value = editedScenario.copy(
             dumbActions = editedScenario.dumbActions.toMutableList().apply {
                 removeAt(deleteIndex)
@@ -150,7 +150,7 @@ class DumbEditionRepository @Inject constructor(
     fun updateDumbActions(dumbActions: List<DumbAction>) {
         val editedScenario = _editedDumbScenario.value ?: return
 
-        Log.d(TAG, "Updating dumb action list with $dumbActions")
+        Log.e(TAG, "Updating dumb action list with $dumbActions")
         _editedDumbScenario.value = editedScenario.copy(
             dumbActions = dumbActions.mapIndexed { index, action ->
                 action.copyWithNewPriority(index)

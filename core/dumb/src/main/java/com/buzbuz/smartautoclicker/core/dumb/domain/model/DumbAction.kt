@@ -61,7 +61,7 @@ sealed class DumbAction : Identifiable {
     ) : DumbAction(), RepeatableWithDelay {
 
         override fun isValid(): Boolean =
-            name.isNotEmpty() && pressDurationMs > 0 && isRepeatCountValid() && isRepeatDelayValid()
+            name.isNotEmpty() && pressDurationMs > 0 && text.isNotEmpty()
     }
 
     data class DumbSwipe(

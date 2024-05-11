@@ -27,6 +27,7 @@ import com.buzbuz.smartautoclicker.feature.dumb.config.data.getDumbConfigPrefere
 import com.buzbuz.smartautoclicker.feature.dumb.config.data.putClickPressDurationConfig
 import com.buzbuz.smartautoclicker.feature.dumb.config.data.putClickRepeatCountConfig
 import com.buzbuz.smartautoclicker.feature.dumb.config.data.putClickRepeatDelayConfig
+import com.buzbuz.smartautoclicker.feature.dumb.config.data.putTextMessage
 import dagger.hilt.android.qualifiers.ApplicationContext
 
 import kotlinx.coroutines.flow.Flow
@@ -44,16 +45,24 @@ class DumbTextViewModel @Inject constructor(
     private val editedDumbText: Flow<DumbAction.DumbText> = _editedDumbText.filterNotNull()
 
     /** Tells if the configured dumb click is valid and can be saved. */
-    val isValidDumbClick: Flow<Boolean> = _editedDumbText
+    val isValidDumbText: Flow<Boolean> = _editedDumbText
         .map { it != null && it.isValid() }
 
     /** The name of the click. */
     val name: Flow<String> = _editedDumbText
         .map { it!!.name }
         .take(1)
+
+    val text: Flow<String> = _editedDumbText
+        .map { it!!.text }
+        .take(1)
+
     /** Tells if the action name is valid or not. */
     val nameError: Flow<Boolean> = _editedDumbText
         .map { it!!.name.isEmpty() }
+
+    val textError: Flow<Boolean> = _editedDumbText
+        .map { it!!.text.isEmpty() }
 
     /** The duration between the press and release of the click in milliseconds. */
     val pressDuration: Flow<String> = editedDumbText
@@ -91,8 +100,8 @@ class DumbTextViewModel @Inject constructor(
             )
         }
 
-    fun setEditedDumbText(click: DumbAction.DumbText) {
-        _editedDumbText.value = click.copy()
+    fun setEditedDumbText(text: DumbAction.DumbText) {
+        _editedDumbText.value = text.copy()
     }
 
     fun getEditedDumbText(): DumbAction.DumbText? =
@@ -129,12 +138,13 @@ class DumbTextViewModel @Inject constructor(
     }
 
     fun saveLastConfig(context: Context) {
-        _editedDumbText.value?.let { click ->
+        _editedDumbText.value?.let { text ->
             context.getDumbConfigPreferences()
                 .edit()
-                .putClickPressDurationConfig(click.pressDurationMs)
-                .putClickRepeatCountConfig(click.repeatCount)
-                .putClickRepeatDelayConfig(click.repeatDelayMs)
+                .putTextMessage(text.text)
+                .putClickPressDurationConfig(text.pressDurationMs)
+                .putClickRepeatCountConfig(text.repeatCount)
+                .putClickRepeatDelayConfig(text.repeatDelayMs)
                 .apply()
         }
     }

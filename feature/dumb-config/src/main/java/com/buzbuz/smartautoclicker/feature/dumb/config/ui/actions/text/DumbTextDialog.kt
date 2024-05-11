@@ -155,9 +155,11 @@ class DumbTextDialog(
     override fun onDialogCreated(dialog: BottomSheetDialog) {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                launch { viewModel.isValidDumbClick.collect(::updateSaveButton) }
+                launch { viewModel.isValidDumbText.collect(::updateSaveButton) }
                 launch { viewModel.name.collect(viewBinding.editNameLayout::setText) }
+                launch { viewModel.text.collect(viewBinding.editTextLayout::setText) }
                 launch { viewModel.nameError.collect(viewBinding.editNameLayout::setError)}
+                launch { viewModel.textError.collect(viewBinding.editTextLayout::setError)}
                 launch { viewModel.pressDuration.collect(::updateDumbClickPressDuration) }
                 launch { viewModel.pressDurationError.collect(viewBinding.editPressDurationLayout::setError)}
                 launch { viewModel.repeatCount.collect(viewBinding.editRepeatLayout::setNumericValue) }

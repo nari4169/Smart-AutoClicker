@@ -50,6 +50,7 @@ mockitoCore = "5.6.0"
 mockitoKotlin = "5.1.0"
 mockk = "1.13.10"
 robolectric = "4.11.1"
+cardviewV7 = "28.0.0"
 
 
 [libraries]
@@ -115,6 +116,7 @@ google-gms-ads = { group = "com.google.android.gms", name = "play-services-ads",
 androidx-arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidxArchCoreTesting" }
 androidx-room-testing = { group = "androidx.room", name = "room-testing", version.ref = "androidxRoom" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+cardview-v7 = { group = "com.android.support", name = "cardview-v7", version.ref = "cardviewV7" }
 
 
 [plugins]

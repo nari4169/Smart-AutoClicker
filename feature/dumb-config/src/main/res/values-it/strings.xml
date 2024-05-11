@@ -97,4 +97,5 @@
     <string name="item_title_dumb_text">Testo</string>
     <string name="input_field_label_text">Testo</string>
     <string name="item_desc_dumb_text">Inserisci un messaggio da consegnare a un\'altra app.</string>
+    <string name="default_dumb_text">Testo di esempio</string>
 </resources>

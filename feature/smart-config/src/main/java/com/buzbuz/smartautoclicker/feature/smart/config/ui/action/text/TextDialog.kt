@@ -43,6 +43,7 @@ import com.buzbuz.smartautoclicker.core.ui.overlays.menu.PositionSelectorMenu
 import com.buzbuz.smartautoclicker.core.ui.overlays.viewModels
 import com.buzbuz.smartautoclicker.core.ui.utils.MinMaxInputFilter
 import com.buzbuz.smartautoclicker.core.ui.views.actionbrief.ClickDescription
+import com.buzbuz.smartautoclicker.core.ui.views.actionbrief.TextDescription
 import com.buzbuz.smartautoclicker.feature.smart.config.R
 import com.buzbuz.smartautoclicker.feature.smart.config.databinding.DialogConfigActionClickBinding
 import com.buzbuz.smartautoclicker.feature.smart.config.databinding.DialogConfigActionTextBinding
@@ -108,16 +109,10 @@ class TextDialog(
                 setLabel(R.string.input_field_label_text)
                 setOnTextChangedListener { viewModel.setText(it.toString()) }
                 textField.filters = arrayOf<InputFilter>(
-                    InputFilter.LengthFilter(100)
+                    InputFilter.LengthFilter(60)
                 )
             }
 
-            clickPositionField.setItems(
-                label = context.getString(R.string.dropdown_label_click_position_type),
-                items = viewModel.clickTypeItems,
-                onItemSelected = viewModel::setClickOnCondition,
-                onItemBound = ::onClickOnDropdownItemBound,
-            )
         }
 
         return viewBinding.root
@@ -145,8 +140,6 @@ class TextDialog(
         super.onStart()
         viewModel.apply {
             monitorSaveButtonView(viewBinding.layoutTopBar.buttonSave)
-            monitorSelectPositionView(viewBinding.layoutClickSelector)
-            monitorClickOnDropdownView(viewBinding.clickPositionField.root)
         }
     }
 
@@ -189,44 +182,7 @@ class TextDialog(
         state ?: return
 
         viewBinding.apply {
-            clickPositionField.setSelectedItem(state.selectedChoice)
-            clickSelectorTitle.text = state.selectorTitle
 
-            if (state.selectorSubText != null) {
-                clickSelectorSubtext.text = state.selectorSubText
-                clickSelectorSubtext.visibility = View.VISIBLE
-            } else {
-                clickSelectorSubtext.text = null
-                clickSelectorSubtext.visibility = View.GONE
-            }
-
-            if (state.selectorIcon != null) {
-                clickSelectorConditionIcon.setImageBitmap(state.selectorIcon)
-                clickSelectorConditionIcon.visibility = View.VISIBLE
-            } else {
-                clickSelectorConditionIcon.setImageIcon(null)
-                clickSelectorConditionIcon.visibility = View.GONE
-            }
-
-            clickSelectorChevron.visibility = if (state.chevronIsVisible) View.VISIBLE else View.GONE
-
-            if (state.forTriggerEvent) {
-                clickPositionField.root.visibility = View.GONE
-                separatorClickType.visibility = View.GONE
-            } else {
-                clickPositionField.root.visibility = View.VISIBLE
-                separatorClickType.visibility = View.VISIBLE
-            }
-
-            layoutClickSelector.setOnClickListener {
-                debounceUserInteraction {
-                    when (state.action) {
-                        ClickPositionSelectorAction.NONE -> Unit
-                        ClickPositionSelectorAction.SELECT_POSITION -> showPositionSelector()
-                        ClickPositionSelectorAction.SELECT_CONDITION -> showConditionSelector()
-                    }
-                }
-            }
         }
     }
 
@@ -235,13 +191,13 @@ class TextDialog(
     }
 
     private fun showPositionSelector() {
-        viewModel.getEditedClick()?.let { click ->
+        viewModel.getEditedClick()?.let { text ->
             overlayManager.navigateTo(
                 context = context,
                 newOverlay = PositionSelectorMenu(
-                    actionDescription = ClickDescription(
-                        position = click.getEditionPosition(),
-                        pressDurationMs = click.pressDuration ?: 1L,
+                    actionDescription = TextDescription(
+                        position = text.getEditionPosition(),
+                        pressDurationMs = text.pressDuration ?: 1L,
                     ),
                     onConfirm = { description ->
                         (description as ClickDescription).position?.let {
@@ -267,14 +223,14 @@ class TextDialog(
 
     private fun onActionEditingStateChanged(isEditingAction: Boolean) {
         if (!isEditingAction) {
-            Log.d(TAG, "Closing ClickDialog because there is no action edited")
+            Log.d(TAG, "Closing TextDialog because there is no action edited")
             finish()
         }
     }
 
-    private fun Action.Click.getEditionPosition(): PointF? =
+    private fun Action.Text.getEditionPosition(): PointF? =
         if (x == null || y == null) null
         else PointF(x!!.toFloat(), y!!.toFloat())
 }
 
-private const val TAG = "ClickDialog"
+private const val TAG = "TextDialog"

@@ -146,7 +146,7 @@ sealed class Action : Identifiable, Completable {
         }
 
         override fun isComplete(): Boolean =
-            super.isComplete() && pressDuration != null && isPositionValid()
+            super.isComplete() && pressDuration != null && text != null // && isPositionValid()
 
         override fun hashCodeNoIds(): Int =
             name.hashCode() + pressDuration.hashCode() + positionType.hashCode() + x.hashCode() + y.hashCode() +

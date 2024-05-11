@@ -35,7 +35,7 @@ import com.buzbuz.smartautoclicker.feature.smart.config.data.ScenarioEditor
 
 class EditedItemsBuilder internal constructor(
     private val repository: IRepository,
-    private val editor: com.buzbuz.smartautoclicker.feature.smart.config.data.ScenarioEditor,
+    private val editor: ScenarioEditor,
 ) {
 
     private val defaultValues = EditionDefaultValues(repository)
@@ -208,6 +208,17 @@ class EditedItemsBuilder internal constructor(
             name = defaultValues.clickName(context),
             pressDuration = defaultValues.clickPressDuration(context),
             positionType = defaultValues.clickPositionType(),
+            priority = 0,
+        )
+
+    fun createNewText(context: Context): Action.Text =
+        Action.Text(
+            id = actionsIdCreator.generateNewIdentifier(),
+            eventId = getEditedEventIdOrThrow(),
+            name = defaultValues.clickName(context),
+            pressDuration = defaultValues.clickPressDuration(context),
+            text = defaultValues.textName(context),
+            positionType = defaultValues.textPositionType(),
             priority = 0,
         )
 

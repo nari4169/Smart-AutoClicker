@@ -113,7 +113,7 @@ private fun DumbAction.DumbText.toTextEntity(scenarioDbId: Long): DumbActionEnti
         dumbScenarioId = if (scenarioDbId != DATABASE_ID_INSERTION) scenarioDbId else scenarioId.databaseId,
         name = name,
         priority = priority,
-        type = DumbActionType.CLICK,
+        type = DumbActionType.TEXT,
         repeatCount = repeatCount,
         isRepeatInfinite = isRepeatInfinite,
         repeatDelay = repeatDelayMs,

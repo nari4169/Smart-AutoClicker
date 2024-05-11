@@ -18,6 +18,7 @@ package com.buzbuz.smartautoclicker.core.dumb.engine
 
 import android.accessibilityservice.GestureDescription
 import android.graphics.Path
+import android.util.Log
 
 import com.buzbuz.smartautoclicker.core.base.AndroidExecutor
 import com.buzbuz.smartautoclicker.core.base.extensions.buildSingleStroke
@@ -63,7 +64,10 @@ internal class DumbActionExecutor(private val androidExecutor: AndroidExecutor) 
             durationMs = dumbText.pressDurationMs.randomizeDurationIfNeeded(),
         )
 
+        Log.e("", "execute DumbText ... ")
+
         executeRepeatableGesture(clickGesture, dumbText)
+
     }
 
     private suspend fun executeDumbSwipe(dumbSwipe: DumbAction.DumbSwipe) {

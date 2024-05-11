@@ -50,11 +50,19 @@ internal class EditionDefaultValues(private val scenarioRepository: IRepository)
 
     fun clickName(context: Context): String =
         context.getString(R.string.default_click_name)
+
+    fun textName(context: Context): String =
+        context.getString(R.string.default_text_name)
+
     fun clickPressDuration(context: Context): Long =
         if (isTutorialModeEnabled()) 1
         else context.getEventConfigPreferences().getClickPressDurationConfig(context)
+
     fun clickPositionType(): Action.Click.PositionType =
         Action.Click.PositionType.USER_SELECTED
+
+    fun textPositionType(): Action.Text.PositionType =
+        Action.Text.PositionType.USER_SELECTED
 
     fun swipeName(context: Context): String =
         context.getString(R.string.default_swipe_name)

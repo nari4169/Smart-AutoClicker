@@ -138,6 +138,7 @@ class DumbScenarioViewHolder(
 
     fun onBind(scenarioItem: ScenarioListUiState.Item.Valid.Dumb) = viewBinding.apply {
         scenarioName.text = scenarioItem.displayName
+        textCount.text = scenarioItem.textCount.toString()
         clickCount.text = scenarioItem.clickCount.toString()
         swipeCount.text = scenarioItem.swipeCount.toString()
         pauseCount.text = scenarioItem.pauseCount.toString()

@@ -97,4 +97,5 @@
     <string name="item_title_dumb_text">文本</string>
     <string name="input_field_label_text">文本</string>
     <string name="item_desc_dumb_text">输入要传送到另一个应用程序的消息。</string>
+    <string name="default_dumb_text">示例文本</string>
 </resources>

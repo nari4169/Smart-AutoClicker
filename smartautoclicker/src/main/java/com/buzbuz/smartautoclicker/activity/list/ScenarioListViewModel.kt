@@ -221,6 +221,7 @@ class ScenarioListViewModel @Inject constructor(
         if (dumbActions.isEmpty()) ScenarioListUiState.Item.Empty.Dumb(this)
         else ScenarioListUiState.Item.Valid.Dumb(
             scenario = this,
+            textCount = dumbActions.count { it is DumbAction.DumbText },
             clickCount = dumbActions.count { it is DumbAction.DumbClick },
             swipeCount = dumbActions.count { it is DumbAction.DumbSwipe },
             pauseCount = dumbActions.count { it is DumbAction.DumbPause },

@@ -72,7 +72,7 @@ class TextViewModel @Inject constructor(
     private val sharedPreferences: SharedPreferences = context.getEventConfigPreferences()
 
     /** The action being configured by the user. */
-    private val configuredClick = editionRepository.editionState.editedActionState
+    private val configuredText = editionRepository.editionState.editedActionState
         .mapNotNull { action -> action.value }
         .filterIsInstance<Action.Text>()
 
@@ -82,29 +82,29 @@ class TextViewModel @Inject constructor(
         .debounce(1000)
 
     /** The name of the click. */
-    val name: Flow<String?> = configuredClick
+    val name: Flow<String?> = configuredText
         .map { it.name }
         .take(1)
 
-    val text: Flow<String?> = configuredClick
+    val text: Flow<String?> = configuredText
         .map{ it.text }
         .take(1)
     /** Tells if the action name is valid or not. */
-    val nameError: Flow<Boolean> = configuredClick.map { it.name?.isEmpty() ?: true }
+    val nameError: Flow<Boolean> = configuredText.map { it.name?.isEmpty() ?: true }
 
     /** The duration between the press and release of the click in milliseconds. */
-    val pressDuration: Flow<String?> = configuredClick
+    val pressDuration: Flow<String?> = configuredText
         .map { it.pressDuration?.toString() }
         .take(1)
     /** Tells if the press duration value is valid or not. */
-    val pressDurationError: Flow<Boolean> = configuredClick.map { (it.pressDuration ?: -1) <= 0 }
+    val pressDurationError: Flow<Boolean> = configuredText.map { (it.pressDuration ?: -1) <= 0 }
 
     val availableConditions: StateFlow<List<ImageCondition>> = editionRepository.editionState.editedEventImageConditionsState
         .map { editedConditions -> editedConditions.value?.filter { it.shouldBeDetected } ?: emptyList() }
         .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
     val positionStateUi: Flow<TextPositionUiState?> =
-        combine(editionRepository.editionState.editedEventState, configuredClick) { event, text ->
+        combine(editionRepository.editionState.editedEventState, configuredText) { event, text ->
             val evt = event.value ?: return@combine null
 
             when {
@@ -139,7 +139,7 @@ class TextViewModel @Inject constructor(
     val isValidAction: Flow<Boolean> = editionRepository.editionState.editedActionState
         .map { it.canBeSaved }
 
-    fun getEditedClick(): Action.Click? =
+    fun getEditedClick(): Action.Text? =
         editionRepository.editionState.getEditedAction()
 
     /**
@@ -147,8 +147,8 @@ class TextViewModel @Inject constructor(
      * @param name the new name.
      */
     fun setName(name: String) {
-        editionRepository.editionState.getEditedAction<Action.Click>()?.let { click ->
-            editionRepository.updateEditedAction(click.copy(name = "" + name))
+        editionRepository.editionState.getEditedAction<Action.Text>()?.let { text ->
+            editionRepository.updateEditedAction(text.copy(name = "" + name))
         }
     }
 
@@ -160,10 +160,10 @@ class TextViewModel @Inject constructor(
 
     /** Set if this click should be made on the detected condition. */
     fun setClickOnCondition(newItem: DropdownItem) {
-        editionRepository.editionState.getEditedAction<Action.Click>()?.let { click ->
+        editionRepository.editionState.getEditedAction<Action.Text>()?.let { click ->
             val positionType = when (newItem) {
-                clickTypeItemOnCondition -> Action.Click.PositionType.ON_DETECTED_CONDITION
-                clickTypeItemOnPosition -> Action.Click.PositionType.USER_SELECTED
+                clickTypeItemOnCondition -> Action.Text.PositionType.ON_DETECTED_CONDITION
+                clickTypeItemOnPosition -> Action.Text.PositionType.USER_SELECTED
                 else -> return
             }
 
@@ -176,7 +176,7 @@ class TextViewModel @Inject constructor(
      * @param position the new position.
      */
     fun setPosition(position: Point) {
-        editionRepository.editionState.getEditedAction<Action.Click>()?.let { click ->
+        editionRepository.editionState.getEditedAction<Action.Text>()?.let { click ->
             editionRepository.updateEditedAction(click.copy(x = position.x, y = position.y))
         }
     }
@@ -186,7 +186,7 @@ class TextViewModel @Inject constructor(
      * @param durationMs the new duration in milliseconds.
      */
     fun setPressDuration(durationMs: Long?) {
-        editionRepository.editionState.getEditedAction<Action.Click>()?.let { click ->
+        editionRepository.editionState.getEditedAction<Action.Text>()?.let { click ->
             editionRepository.updateEditedAction(click.copy(pressDuration = durationMs))
         }
     }
@@ -203,15 +203,15 @@ class TextViewModel @Inject constructor(
 
     /** Set the condition to click on when the events conditions are fulfilled. */
     fun setConditionToBeClicked(condition: ImageCondition) {
-        editionRepository.editionState.getEditedAction<Action.Click>()?.let { click ->
+        editionRepository.editionState.getEditedAction<Action.Text>()?.let { click ->
             editionRepository.updateEditedAction(click.copy(clickOnConditionId = condition.id))
         }
     }
 
     /** Save the configured values to restore them at next creation. */
     fun saveLastConfig() {
-        editionRepository.editionState.getEditedAction<Action.Click>()?.let { click ->
-            sharedPreferences.edit().putClickPressDurationConfig(click.pressDuration ?: 0).apply()
+        editionRepository.editionState.getEditedAction<Action.Text>()?.let { text ->
+            sharedPreferences.edit().putClickPressDurationConfig(text.pressDuration ?: 0).apply()
         }
     }
 

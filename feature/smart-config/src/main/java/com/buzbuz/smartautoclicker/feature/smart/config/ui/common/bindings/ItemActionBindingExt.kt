@@ -67,6 +67,7 @@ data class ActionDetails (
 /** @return the [ActionDetails] corresponding to this action. */
 fun Action.toActionDetails(context: Context, inError: Boolean = !isComplete()): ActionDetails = when (this) {
     is Action.Click -> toClickDetails(context, inError)
+    is Action.Text -> toTextDetails(context, inError)
     is Action.Swipe -> toSwipeDetails(context, inError)
     is Action.Pause -> toPauseDetails(context, inError)
     is Action.Intent -> toIntentDetails(context, inError)
@@ -83,6 +84,21 @@ private fun Action.Click.toClickDetails(context: Context, inError: Boolean): Act
             inError -> context.getString(R.string.item_error_action_invalid_generic)
             positionType == Action.Click.PositionType.ON_DETECTED_CONDITION ->
                 context.getString(R.string.item_desc_click_position_on_condition)
+            else  -> context.getString(
+                R.string.item_desc_click_details,
+                formatDuration(pressDuration!!), x, y,
+            )
+        },
+        action = this,
+        haveError = inError,
+    )
+
+private fun Action.Text.toTextDetails(context: Context, inError: Boolean): ActionDetails =
+    ActionDetails(
+        icon = R.drawable.ic_keyboard,
+        name = name!!,
+        details = when {
+            inError -> context.getString(R.string.item_error_action_invalid_generic)
             else  -> context.getString(
                 R.string.item_desc_click_details,
                 formatDuration(pressDuration!!), x, y,

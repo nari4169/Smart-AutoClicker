@@ -58,6 +58,7 @@ class ActionsViewModel @Inject constructor(
     /** Type of actions to be displayed in the new action creation dialog. */
     val actionCreationItems: List<ActionTypeChoice> = buildList {
          add(ActionTypeChoice.Click)
+         add(ActionTypeChoice.Text)
          add(ActionTypeChoice.Swipe)
          add(ActionTypeChoice.Pause)
          add(ActionTypeChoice.ChangeCounter)
@@ -73,6 +74,7 @@ class ActionsViewModel @Inject constructor(
      */
     fun createAction(context: Context, actionType: ActionTypeChoice): Action = when (actionType) {
         is ActionTypeChoice.Click -> editionRepository.editedItemsBuilder.createNewClick(context)
+        is ActionTypeChoice.Text -> editionRepository.editedItemsBuilder.createNewText(context)
         is ActionTypeChoice.Swipe -> editionRepository.editedItemsBuilder.createNewSwipe(context)
         is ActionTypeChoice.Pause -> editionRepository.editedItemsBuilder.createNewPause(context)
         is ActionTypeChoice.Intent -> editionRepository.editedItemsBuilder.createNewIntent(context)
@@ -136,6 +138,11 @@ sealed class ActionTypeChoice(
         R.string.item_title_click,
         R.string.item_desc_click,
         R.drawable.ic_click,
+    )
+    data object Text : ActionTypeChoice(
+        R.string.item_title_text,
+        R.string.item_desc_text,
+        R.drawable.ic_keyboard,
     )
     /** Swipe Action choice. */
     data object Swipe : ActionTypeChoice(

@@ -184,9 +184,9 @@ private fun OverlayManager.onDumbTextCreationSelected(
     navigateTo(
         context = context,
         newOverlay = PositionSelectorMenu(
-            actionDescription = TextDescription(),
+            actionDescription = ClickDescription(),
             onConfirm = { description ->
-                (description as? TextDescription)?.position?.let { position ->
+                (description as? ClickDescription)?.position?.let { position ->
                     startDumbTextEditionUiFlow(
                         context = context,
                         dumbText = creator.createNewDumbText(position.toPoint()),
